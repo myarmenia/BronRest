@@ -1141,16 +1141,16 @@
         },
         {
             "name": "jeroennoten/laravel-adminlte",
-            "version": "v3.8.0",
+            "version": "v3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
-                "reference": "5ba9fcebbdd889e4d05fdcfba927ffe1335f91ee"
+                "reference": "ad59de64afcfb37d8348f0b175d5074519b8c2e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/5ba9fcebbdd889e4d05fdcfba927ffe1335f91ee",
-                "reference": "5ba9fcebbdd889e4d05fdcfba927ffe1335f91ee",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/ad59de64afcfb37d8348f0b175d5074519b8c2e8",
+                "reference": "ad59de64afcfb37d8348f0b175d5074519b8c2e8",
                 "shasum": ""
             },
             "require": {
@@ -1194,9 +1194,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jeroennoten/Laravel-AdminLTE/issues",
-                "source": "https://github.com/jeroennoten/Laravel-AdminLTE/tree/v3.8.0"
+                "source": "https://github.com/jeroennoten/Laravel-AdminLTE/tree/v3.8.1"
             },
-            "time": "2022-02-10T17:50:18+00:00"
+            "time": "2022-03-14T12:43:50+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8930,16 +8930,16 @@
         },
         {
             "name": "spatie/ignition",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "982f69f3c2e525cef62fa23ada047d745e4bcda9"
+                "reference": "be24d33a9de271638314924b5da85e168e4148e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/982f69f3c2e525cef62fa23ada047d745e4bcda9",
-                "reference": "982f69f3c2e525cef62fa23ada047d745e4bcda9",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/be24d33a9de271638314924b5da85e168e4148e4",
+                "reference": "be24d33a9de271638314924b5da85e168e4148e4",
                 "shasum": ""
             },
             "require": {
@@ -8996,7 +8996,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-19T14:07:30+00:00"
+            "time": "2022-03-23T11:02:14+00:00"
         },
         {
             "name": "spatie/laravel-ignition",
@@ -9145,5 +9145,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.0.0"
 }
