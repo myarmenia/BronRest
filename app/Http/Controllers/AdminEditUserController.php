@@ -23,7 +23,7 @@ class AdminEditUserController extends Controller
 
     public function index(Request $request)
     {
-        $data = $this->userServ->getAll();
+        $data = $this->userServ->getAll($request['type']);
         return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

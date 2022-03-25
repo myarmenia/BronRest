@@ -9,9 +9,12 @@ use Illuminate\Support\Facades\DB;
 class UserService
 {
 
-    public function getAll(Int $pagintate = 5,String $order_by = 'id',String $order_pos = 'DESC'){
+    public function getAll(String $type = 'CustomUser',Int $pagintate = 5,String $order_by = 'id',String $order_pos = 'DESC'){
         return User::orderBy($order_by, $order_pos)
             ->where('id', '!=', Auth::user()->id)
+            ->whereHas('roles', function ($query) use  ($type) {
+                $query->where('name', $type);
+            })
             ->paginate($pagintate);
     }
 
