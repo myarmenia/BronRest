@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             CreateAdminUserSeeder::class,
             CreateDaySeeder::class,
-            CreateUserSeeder::class
+            CreateUserSeeder::class,
+            CreateRestaurantUserSeeder::class
         ]);
     }
 }

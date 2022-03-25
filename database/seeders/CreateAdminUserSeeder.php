@@ -25,7 +25,7 @@ class CreateAdminUserSeeder extends Seeder
 
         $role = Role::create(['name' => 'Admin']);
 
-        $permissions = Permission::where('name','!=','restaurant')->pluck('id','id')->all();
+        $permissions = Permission::whereNotIn('name',['restaurant','custom'])->pluck('id','id')->all();
 
         $role->syncPermissions($permissions);
 

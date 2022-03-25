@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class CreateUserSeeder extends Seeder
+class CreateRestaurantUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,15 +19,15 @@ class CreateUserSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'user',
-            'email' => 'user@gmail.com',
+            'email' => 'restaurant@gmail.com',
             'password' => '12345678',
             'email_verified_at' => date("Y-m-d h:i:sa")
         ]);
 
 
-        $role = Role::create(['name' => 'CustomUser']);
+        $role = Role::create(['name' => 'RestaurantUser']);
 
-        $permissions = Permission::where('name','custom')->pluck('id','id')->all();
+        $permissions = Permission::where('name','restaurant')->pluck('id','id')->all();
 
         $role->syncPermissions($permissions);
 
