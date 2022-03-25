@@ -227,12 +227,12 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
+            'type' => 'navbar-search',
+            'text' => 'search',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
@@ -243,48 +243,48 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'url' => 'admin/blog',
+            'can' => 'manage-blog',
         ],
 
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'route'  => 'profile',
+            'route' => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'route'  => 'change_password',
+            'route' => 'change_password',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'multilevel',
+            'icon' => 'fas fa-fw fa-share',
             'submenu' => [
                 [
                     'text' => 'level_one',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text' => 'level_one',
+                    'url' => '#',
                     'submenu' => [
                         [
                             'text' => 'level_two',
-                            'url'  => '#',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
+                            'text' => 'level_two',
+                            'url' => '#',
                             'submenu' => [
                                 [
                                     'text' => 'level_three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                                 [
                                     'text' => 'level_three',
-                                    'url'  => '#',
+                                    'url' => '#',
                                 ],
                             ],
                         ],
@@ -292,51 +292,82 @@ return [
                 ],
                 [
                     'text' => 'level_one',
-                    'url'  => '#',
+                    'url' => '#',
                 ],
             ],
         ],
-        ['header' => 'Users','can'=>'user-show'],
+//        ['header' => 'Users','can'=>'user-show'],
+//        [
+//            'text'       => 'users',
+//            'icon' => 'fas fa-fw fa-user',
+//            'route'        => ['users.index',['type'=> 'a']],
+//            'can'=>'user-show',
+//
+//
+//
+//        ],
+
+
+        ['header' => 'Users', 'can' => 'user-show'],
         [
-            'text'       => 'users',
-            'icon' => 'fas fa-fw fa-user',
-            'route'        => 'users.index',
-            'can'=>'user-show'
+            'text' => 'Users',
+            'icon' => 'fas fa-fw fa-share',
+            'can' => 'user-show',
+            'submenu' => [
+                [
+                    'text' => 'Custom Users',
+                    'icon' => 'fas fa-fw fa-user',
+                    'route' => ['users.index', ['type' => 'CustomUser']],
+                    'can' => 'user-show',
+                ],
+                [
+                    'text' => 'Restaurant Users',
+                    'icon' => 'fas fa-fw fa-user',
+                    'route' => ['users.index', ['type' => 'RestaurantUser']],
+                    'can' => 'user-show',
+                ],
+                [
+                    'text' => 'Admins',
+                    'icon' => 'fas fa-fw fa-user',
+                    'route' => ['users.index', ['type' => 'Admin']],
+                    'can' => 'user-show',
+                ],
+            ],
         ],
 
-        ['header' => 'Roles And Permissions','can'=>'role-list'],
+        ['header' => 'Roles And Permissions', 'can' => 'role-list'],
         [
-            'text'       => 'roles',
+            'text' => 'roles',
             'icon_color' => 'red',
-            'route'        => 'roles.index',
-            'can'=>'role-list'
+            'route' => 'roles.index',
+            'can' => 'role-list'
         ],
 
         [
-            'text'       => 'permissions',
+            'text' => 'permissions',
             'icon_color' => 'red',
-            'route'        => 'permissions.index',
-            'can'=>'perm-list'
+            'route' => 'permissions.index',
+            'can' => 'perm-list'
         ],
 
         ['header' => 'Restaurants'],
         [
-            'text'       => 'Kitchen Categories',
-            'route'        => 'kitchen_categories.index',
+            'text' => 'Kitchen Categories',
+            'route' => 'kitchen_categories.index',
             'can' => 'kitchen-cat-list'
         ],
 
         [
-            'text'       => 'Main Restaurants',
-            'route'        => 'getRestaurant',
+            'text' => 'Main Restaurants',
+            'route' => 'getRestaurant',
             'can' => 'restaurant'
 
 
         ],
 
         [
-            'text'       => 'Add Main Restaurant',
-            'route'        => 'createMainRestaurantPage',
+            'text' => 'Add Main Restaurant',
+            'route' => 'createMainRestaurantPage',
             'can' => 'restaurant'
 
 
