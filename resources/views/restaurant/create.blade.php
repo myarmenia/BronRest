@@ -8,11 +8,11 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">
-                Add Your {{request()->route('id') ? '' : 'Main'}} Restaurant
+                Add Your {{request()->route('id') ? '' : 'Main'}} Добавьте основные данные для ресторана
             </p>
             <form action="{{route('createRestaurant',request()->route('id'))}}" method="post" enctype="multipart/form-data">
                 @csrf
-               
+
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Name" name="name">
                     <div class="input-group-append">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-               
+
 
                 <div class="input-group mb-3">
                     <input type="number" class="form-control" placeholder="Phone Number" name="phone_number">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col">
                     <div class="form-group">
                         <label>Description</label>
@@ -52,7 +52,7 @@
                         </div>
                 </div>
                 @endif
-            
+
 
                 @if(request()->route('id'))
                 <input type="text" name="latit" class="latit_inp"  hidden>
@@ -63,7 +63,7 @@
                 <label>{{$day->day}}</label>
                 <input type="time" class="form-control" name="{{$day->id . '_start'}}">
                 <input type="time" class="form-control" name="{{$day->id . '_end'}}">
-                </div> 
+                </div>
                 @endforeach
                 <br>
                 </div>
@@ -80,12 +80,12 @@
                         </div>
                 </div>
                 <div class="col">
-                  <div id="map" class="map"></div>  
+                  <div id="map" class="map"></div>
                 </div>
                 @endif
-                
 
-                
+
+
 
                 <div class="row">
                     <div class="col-12">
@@ -138,12 +138,12 @@
         $('.latit_inp').val(lat)
         $('.longit_inp').val(lon)
         console.log(lon);
-        
-    }); 
+
+    });
 
 
 
 
     </script>
-@endif    
+@endif
 @endsection

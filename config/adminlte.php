@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\App as FacadesApp;
+use Illuminate\Support\Facades\App;
+
 
 return [
 
