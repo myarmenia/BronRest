@@ -22,22 +22,26 @@ use App\Http\Controllers\Restaurant\MenuController;
 |
 */
 
-Route::get('/'.app()->getLocale(), function () {
-    return view('welcome');
+Route::get('/', function () {
+   return redirect(App::getLocale());
 });
+
 
 
 // Route::group(['middleware' => 'verified'], function(){
 //     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // });
 
-Route::group(['prefix'=>'{locale}', 'middleware' => 'setlocale'],function(){
+// Route::group(['prefix'=>'{locale}', 'middleware' => 'setlocale'],function(){
     // Route::group(['middleware' => ['setLocale']], function() {
-        Auth::routes(['verify' => true]);
 
-        Route::group(['middleware' => 'verified'], function(){
-            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-        });
+
+            Route::get('/', function () {
+                return view('welcome');
+            });
+            Auth::routes(['verify' => true]);
+    
+  
 
 Route::group(['middleware' => ['auth']], function() {
 
@@ -47,6 +51,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('permissions', PermissionController::class);
 
     });
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('kitchen_categories', KitchenCategorieController::class);
 
@@ -87,7 +93,7 @@ Route::group(['middleware' => ['auth']], function() {
     // });
 
 
-});
+
 
 Route::get('get_file',[FileController::class,'getFile'])->name('getFile');
 
