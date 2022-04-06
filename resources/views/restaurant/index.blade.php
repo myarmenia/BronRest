@@ -4,7 +4,7 @@
 
 @section('content')
        <a type="button" class="btn btn-block btn-primary" href="{{route('createMainRestaurantPage',request()->route('id') ?? null)}}">
-          Add {{request()->route('id') ? '' : 'Main'}} Restaurant
+          Add {{request()->route('id') ? '' : 'Main'}} Добавьте основные данные для ресторана
        </a>
 <br>
 
@@ -21,7 +21,7 @@
       </div>
       @endforeach
    </div>
-    
+
      <div class="card-body">
        <h5 class="card-title">
             {{$dat['name'] ?? null}}
@@ -37,5 +37,5 @@
 @endforeach
 @endif
    {{$data->links()}}
- 
+
 @endsection
