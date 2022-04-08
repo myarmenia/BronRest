@@ -42,4 +42,15 @@ class Restaurant extends Model
         return $this->hasOne(self::class,'id','parent_id');
     }
 
+    public function floor_planes()
+    {
+        return $this->hasOne(FloorPlane::class,'restaurant_id','id');
+
+    }
+
+    public function kitchen_categories()
+    {
+        return $this->belongsToMany(KitchenCategorie::class,'restaurant_kitchen_categories_pivot','restaurant_id','kitchen_category_id','id','id');
+    }
+
 }
