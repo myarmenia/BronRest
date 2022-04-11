@@ -30,16 +30,16 @@ if($('#hidden-url').val()=='add-floor-plan'){
                 required: true,
                 accept: "jpg,png,jpeg",
         },
-        width: {
+        table_x: {
                 required: true,
         },
-        height: {
+        table_y: {
                 required: true,
         },
         hall_name: {
                 required: true,
         },
-        desc: {
+        description: {
             required: true,
             maxlength: 5000,
             minlength: 30,
@@ -48,16 +48,16 @@ if($('#hidden-url').val()=='add-floor-plan'){
 }
 else{
     $validate_rules={
-        width: {
+        table_x: {
                 required: true,
         },
-        height: {
+        table_y: {
                 required: true,
         },
         hall_name: {
                 required: true,
         },
-        desc: {
+        description: {
             required: true,
             maxlength: 5000,
             minlength: 30,
@@ -89,22 +89,22 @@ $('.send').validate({
 // },
 messages: {
     img: {
-        required: 'This field is required',
-        accept: 'Only jpg, png or jped format',
+        required: 'Это поле обязательно к заполнению',
+        accept: 'Только формат jpg, png или jped',
     },
-    width: {
-        required: 'This field is required',
+    table_x: {
+        required: 'Это поле обязательно к заполнению',
     },
-    height: {
-        required: 'This field is required',
+    table_y: {
+        required: 'Это поле обязательно к заполнению',
     },
     hall_name: {
-            required: 'This field is required',
+            required: 'Это поле обязательно к заполнению',
     },
-    desc:{
-            required: 'This field is required',
-            minlength: 'Please enter at least 30 characters.',
-    	    maxlength: 'Please enter no more than 5000 characters.'
+    description:{
+            required: 'Это поле обязательно к заполнению',
+            minlength: 'Пожалуйста, введите не менее 30 символов.',
+    	    maxlength: 'Пожалуйста, введите не более 5000 символов.'
     }
 },
 submitHandler: function(form) {
@@ -148,7 +148,7 @@ $url=$('#hidden-url').val()
                 },
                 success: function (result) {
                     console.log(result)
-                            $('.message').html('Описание зала успешно добавлена')
+                            $('.message').html('<div class="text-success">Описание зала успешно добавлена</div>')
                             if(result){
                                 setTimeout(function () {location.reload() }, 1500)
                             }
@@ -160,8 +160,9 @@ $url=$('#hidden-url').val()
 // -------create table in background image for floor plane----------------------
 $('.create-tbl').on('click', function(){
         $('.tbl').html('')
-        $width=$('.width').val()
-        $height=$('.height').val()
+        $width=Math.round($('.width').val())
+        $height=Math.round($('.height').val())
+        console.log( $width+'----')
         for (let i= 1; i<= $height; i++) {
              $tr= jQuery('<tr/>', {
                          id: 'id-'+i,

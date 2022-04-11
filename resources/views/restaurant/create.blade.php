@@ -78,31 +78,31 @@
 
 
                 @if(request()->route('id'))
-
-                <input type="text" name="latit" class="latit_inp"  hidden>
-                <input type="text" name="longit" class="longit_inp"  hidden>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                <label class="form-check-label">Kitchen Categories</label>
-                @foreach($kitchenCategories as $data)
-                    <div class="form-check">
-                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $data['id'] }}]">
-                    <label class="form-check-label">{{ $data['name'] }}</label>
-                    </div>
-                @endforeach
-                    </div>
+                <div class="row form-group">
+                    <input type="text" name="latit" class="latit_inp"  hidden>
+                    <input type="text" name="longit" class="longit_inp"  hidden>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="form-check-label">Kitchen Categories</label>
+                            @foreach($kitchenCategories as $data)
+                                <div class="form-check">
+                                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $data['id'] }}]">
+                                    <label class="form-check-label">{{ $data['name'] }}</label>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <div class="row form-group">
                      @foreach($days as $day)
-                <div class="col-3">
-                <label>{{$day->day}}</label>
-                <input type="time" class="form-control" name="{{$day->id . '_start'}}">
-                <input type="time" class="form-control" name="{{$day->id . '_end'}}">
-                </div>
-                @endforeach
-                <br>
-                <br>
+                        <div class="col-3">
+                            <label>{{$day->day}}</label>
+                            <input type="time" class="form-control" name="{{$day->id . '_start'}}">
+                            <input type="time" class="form-control" name="{{$day->id . '_end'}}">
+                        </div>
+                    @endforeach
+                    <br>
+                    <br>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Select Images</label>
