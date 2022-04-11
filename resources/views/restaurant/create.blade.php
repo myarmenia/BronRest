@@ -94,15 +94,16 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                     @foreach($days as $day)
-                        <div class="col-3">
-                            <label>{{$day->day}}</label>
-                            <input type="time" class="form-control" name="{{$day->id . '_start'}}">
-                            <input type="time" class="form-control" name="{{$day->id . '_end'}}">
-                        </div>
-                    @endforeach
-                    <br>
-                    <br>
+                @foreach($days as $day)
+                <div class="col-3">
+                <label>{{$day->day}}</label>
+                <input type="time" class="form-control" name="{{$day->id . '_start'}}">
+                <input type="time" class="form-control" name="{{$day->id . '_end'}}">
+                </div>
+                @endforeach
+                <br>
+                <br>
+
                 </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Select Images</label>
@@ -115,7 +116,6 @@
                         <span class="input-group-text">Upload</span>
 
                             </div>
-                        @endforeach
                         <br>
                     </div>
                     <div class="form-group">
