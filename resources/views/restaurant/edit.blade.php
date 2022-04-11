@@ -158,7 +158,7 @@
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                         </div>
                         <div class="input-group-append">
                         <span class="input-group-text">Выберите файл</span>
