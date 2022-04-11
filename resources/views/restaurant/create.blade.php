@@ -78,14 +78,42 @@
 
 
                 @if(request()->route('id'))
-                    <input type="text" name="latit" class="latit_inp"  hidden>
-                    <input type="text" name="longit" class="longit_inp"  hidden>
-                    <div class="row form-group">
-                        @foreach($days as $day)
-                            <div class="col-3">
-                                <label>{{$day->day}}</label>
-                                <input type="time" class="form-control" name="{{$day->id . '_start'}}">
-                                <input type="time" class="form-control" name="{{$day->id . '_end'}}">
+
+                <input type="text" name="latit" class="latit_inp"  hidden>
+                <input type="text" name="longit" class="longit_inp"  hidden>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                <label class="form-check-label">Kitchen Categories</label>
+                @foreach($kitchenCategories as $data)
+                    <div class="form-check">
+                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $data['id'] }}]">
+                    <label class="form-check-label">{{ $data['name'] }}</label>
+                    </div>
+                @endforeach
+                    </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                     @foreach($days as $day)
+                <div class="col-3">
+                <label>{{$day->day}}</label>
+                <input type="time" class="form-control" name="{{$day->id . '_start'}}">
+                <input type="time" class="form-control" name="{{$day->id . '_end'}}">
+                </div>
+                @endforeach
+                <br>
+                <br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Select Images</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+
                             </div>
                         @endforeach
                         <br>
@@ -169,7 +197,12 @@
 
 
 
-
+    $('.checkbox_fuc').on('change', function (e) {
+    if ($('.checkbox_fuc:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("allowed only 3");
+    }
+});
     </script>
 @endif
 @endsection

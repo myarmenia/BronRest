@@ -26,7 +26,7 @@ class KitchenCategorieController extends Controller
     {
         $datas = KitchenCategorie::paginate(5);
 
-        return view('kitchen_categories.index', compact('datas'));
+        return view('restaurant.kitchen_categories.index', compact('datas'));
     }
 
     /**

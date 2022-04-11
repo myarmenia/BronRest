@@ -47,7 +47,8 @@ class RestaurantCreateReq extends FormRequest
             '6_end' => 'nullable',
             '7_start' => 'nullable',
             '7_end' => 'nullable',
-            'delete_image.*' => 'nullable'
+            'delete_image.*' => 'nullable',
+            'kitchen_cats.*' => 'nullable'
         ];
     }
 }
