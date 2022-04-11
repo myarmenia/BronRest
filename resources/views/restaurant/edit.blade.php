@@ -120,7 +120,7 @@
                 <label class="form-check-label">Kitchen Categories</label>
                 @foreach($kitchenCategories as $dat)
                     <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]" @if ($data->kitchen_categories->contains($dat['id']))
+                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]" @if ($data->kitchen_categories->contains($dat['id']))
                         checked
                     @endif>
                     <label class="form-check-label">{{ $dat['name'] }}</label>
@@ -223,6 +223,14 @@
 
 
 
+    </script>
+    <script>
+    $('.checkbox_fuc').on('change', function (e) {
+    if ($('.checkbox_fuc:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("allowed only 3");
+    }
+});
     </script>
 @endif
 @endsection
