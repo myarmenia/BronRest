@@ -75,8 +75,14 @@ class RestaurantService
           }
 
           if(isset($data['logo'])){
-               $deleted = $this->fileServ->delete($res->mainImage['path']);
-               $res->mainImage->delete();
+              if(isset($res->mainImage['path'])){
+                  $deleted = $this->fileServ->delete($res->mainImage['path']);
+                  $res->mainImage->delete();
+              }
+              else{
+                //   dd(444);
+              }
+
                $file = $this->fileServ->createImage($res['id'],$data['logo']);
                $image = new Image(['path' => $file,'main_img' => 1]);
                $res->images()->save($image);

@@ -24,15 +24,17 @@ class RestaurantController extends Controller
 
     }
 
-    public function index($id = null){
+    public function index(Request $request, $id = null){
 
-        $paginate = 5;
+        $paginate = 6;
+
+        $i = $request['page'] ?  ($request['page'] - 1) * 6 : 0;
         $data = Restaurant::with('mainImage')
         ->where('user_id',Auth::user()->id)
         ->where('parent_id',$id)
         ->paginate($paginate);
 
-        return view('restaurant.index',compact('data'));
+        return view('restaurant.index',compact('data', 'i'));
     }
 
     public function create(){
@@ -50,18 +52,15 @@ class RestaurantController extends Controller
 
         $data = $request->validated();
 
-
-
         $data['parent_id'] = $id;
         $data['user_id'] = Auth::user()->id;
 
 
         $res = $this->restaurantServ->store($data);
 
-
-
-
-       return redirect()->route('editRestaurant',$res['id'])->with('status',200);
+       return redirect()->route('editRestaurant',$res['id'])
+       ->with('store',200);
+    //    ->with('status',200);
 
     }
 
@@ -81,8 +80,5 @@ class RestaurantController extends Controller
         return redirect()->back()->with('status',200);
 
     }
-
-
-
 
 }
