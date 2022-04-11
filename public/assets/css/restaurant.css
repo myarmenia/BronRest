@@ -1,0 +1,16 @@
+.cont-restaurant .card
+{
+   width: 49%;
+}
+.image_container{
+    width: 150px
+}
+.image_container .images{
+    width: 100%
+}
+@media (max-width: 425px) {
+    .cont-restaurant .card
+    {
+       width: 100%;
+    }
+}

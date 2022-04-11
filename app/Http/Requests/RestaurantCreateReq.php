@@ -23,10 +23,11 @@ class RestaurantCreateReq extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'name' => 'nullable',
+            'name' => 'required',
             'phone_number' => 'required',
-            'desc' => 'nullable',
+            'desc' => 'required',
             'address' => 'nullable',
             'longit' => 'nullable',
             'latit' => 'nullable',

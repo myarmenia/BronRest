@@ -361,7 +361,7 @@ return [
         ],
 
         [
-            'text' => 'Main Restaurants',
+            'text' => 'Главные рестораны',
             'route' => 'getRestaurant',
             'can' => 'restaurant'
 
@@ -369,7 +369,7 @@ return [
         ],
 
         [
-            'text' => 'Add Main Restaurant',
+            'text' => 'Создать Главный ресторан',
             'route' => 'createMainRestaurantPage',
             'can' => 'restaurant'
 
