@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                     @foreach($days as $day)
+                @foreach($days as $day)
                 <div class="col-3">
                 <label>{{$day->day}}</label>
                 <input type="time" class="form-control" name="{{$day->id . '_start'}}">
@@ -115,7 +115,6 @@
                         <span class="input-group-text">Upload</span>
 
                             </div>
-                        @endforeach
                         <br>
                     </div>
                     <div class="form-group">
