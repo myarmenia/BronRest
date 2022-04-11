@@ -115,6 +115,20 @@
                @if(isset($data->parent))
                <input type="text" name="latit" class="latit_inp"  hidden>
                 <input type="text" name="longit" class="longit_inp"  hidden>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                <label class="form-check-label">Kitchen Categories</label>
+                @foreach($kitchenCategories as $dat)
+                    <div class="form-check">
+                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]" @if ($data->kitchen_categories->contains($dat['id']))
+                        checked
+                    @endif>
+                    <label class="form-check-label">{{ $dat['name'] }}</label>
+                    </div>
+                @endforeach
+                    </div>
+                    </div>
+                </div>
                <div class="form-group">
                     <label for="exampleInputFile">Select Images</label>
                         <div class="input-group">
@@ -209,6 +223,14 @@
 
 
 
+    </script>
+    <script>
+    $('.checkbox_fuc').on('change', function (e) {
+    if ($('.checkbox_fuc:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("allowed only 3");
+    }
+});
     </script>
 @endif
 @endsection

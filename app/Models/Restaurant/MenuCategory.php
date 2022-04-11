@@ -14,4 +14,9 @@ class MenuCategory extends Model
     public $fillable = ['name'];
 
     public $timestamps = false;
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class,'category_id','id');
+    }
 }
