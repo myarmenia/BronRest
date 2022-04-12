@@ -7,7 +7,7 @@
                 <h2>Пользовател</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Назад </a>
+                <a class="btn btn-primary" href="{{ URL::previous() }}"> Back </a>
             </div>
         </div>
     </div>

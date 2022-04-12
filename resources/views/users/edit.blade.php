@@ -7,7 +7,7 @@
                 <h2>Редактировать данные пользователя</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index', ['type' => request()->route('type')]) }}"> Назад </a>
+                <a class="btn btn-primary" href="{{ URL::previous() }}"> Back </a>
             </div>
         </div>
     </div>
