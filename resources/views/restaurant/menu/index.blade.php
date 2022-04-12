@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Цена</label>
                             <div class="col-sm-12">
-                                <input pattern="^\d*(\.\d{0,2})?$" class="form-control" id="price" name="Цена" placeholder="Enter Price" required="">
+                                <input pattern="^\d*(\.\d{0,2})?$" class="form-control" id="price" name="price" placeholder="Enter Price" required="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -141,7 +141,7 @@
                     { data: 'price', name: 'price' },
                     { data: 'category.name', name: 'category_id' },
                     { data: 'img', render : function ( data, type, row, meta ) {
-                            let img = `<img src="{{ asset('storage/${data}')}}">`
+                            let img = `<img src="/get_file?path=${data}" width="50">`
                             return img
                         } },
                     {data: "id" , render : function ( data, type, row, meta ) {
