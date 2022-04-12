@@ -239,7 +239,7 @@
         })
       });
 
-      1
+
 
 
     map.on('click', function(evt) {

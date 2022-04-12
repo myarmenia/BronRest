@@ -16,4 +16,16 @@ return [
     'important'                     => 'Важно',
     'warning'                       => 'Внимание',
     'information'                   => 'Информация',
+    'Users'                         => 'Пользователи',
+    'Custom Users'                  => 'Пользовательские пользователи',
+    'Restaurant Users'              => 'Пользователи ресторана',
+    'Admin Users'                   => 'Админы',
+    'Roles And Permissions'         => 'Роли и разрешения',
+    'roles'                         => 'Роли',
+    'permissions'                   => 'Разрешения',
+    'Restaurants'                   => 'Рестораны',
+    'Kitchen Categories'            => 'Категории кухонь'
+
+
+
 ];

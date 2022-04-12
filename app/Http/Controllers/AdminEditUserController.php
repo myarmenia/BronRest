@@ -74,7 +74,7 @@ class AdminEditUserController extends Controller
 
         $this->userServ->adminEdit($id,$validated);
 
-        return redirect()->route('users.index')
+        return redirect()->back()
             ->with('success', 'User updated successfully');
     }
 
@@ -87,7 +87,7 @@ class AdminEditUserController extends Controller
     public function destroy($id)
     {
         $this->userServ->delete($id);
-        return redirect()->route('users.index')
+        return redirect()->back()
             ->with('success', 'User deleted successfully');
     }
 }
