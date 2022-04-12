@@ -24,7 +24,7 @@ $("#imageUpload").on('change', function() {
 $arr_tbl=[]
 $('.send').on('click', function(event){
     console.log($('#hidden-url').val())
-if($('#hidden-url').val()=='add-floor-plan'){
+if($('#hidden-url').attr('data-name')=='create-floor-plan'){
     $validate_rules={
         img: {
                 required: true,
