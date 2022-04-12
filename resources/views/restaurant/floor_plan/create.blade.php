@@ -53,7 +53,7 @@
                                                 </div>
                                                 {{-- ------------table y---------------------- --}}
                                                 <div class="form-group mr-3 bmd-form-group ">
-                                                    <label class="bmd-label-floating ">Длина </label>
+                                                    <label class="bmd-label-floating ">Длина на метрах</label>
                                                     <input class="form-control height xy" type="number" name="table_y" required="true" aria-required="true" aria-invalid="true">
                                                 </div>
                                                 <div>

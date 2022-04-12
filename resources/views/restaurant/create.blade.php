@@ -97,8 +97,8 @@
                 @foreach($days as $day)
                 <div class="col-3">
                 <label>{{$day->day}}</label>
-                <input type="time" class="form-control" name="{{$day->id . '_start'}}">
-                <input type="time" class="form-control" name="{{$day->id . '_end'}}">
+                <input type="time" class="form-control work-days-start" name="{{$day->id . '_start'}}">
+                <input type="time" class="form-control work-days-end" name="{{$day->id . '_end'}}">
                 </div>
                 @endforeach
                 <br>
@@ -106,7 +106,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">Select Images</label>
+                    {{-- <label for="exampleInputFile">Select Images</label>
                         <div class="input-group">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
@@ -117,8 +117,8 @@
 
                             </div>
                         <br>
-                    </div>
-                    <div class="form-group">
+                    </div> --}}
+                    <div class="form-group card-body">
                         <label for="exampleInputFile">Выберите изображения</label>
                             <div class="input-group">
                                 <div class="custom-file">

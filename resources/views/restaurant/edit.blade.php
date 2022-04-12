@@ -97,30 +97,30 @@
                     </div>
                 @endif
                <br>
-               @if(isset($data->images))
-               <div class="row">
-                    @foreach($data->images as $num => $dat)
-                        <div class="col-3 i-cont">
-                            <div class="image_container d-flex">
+                @if(isset($data->images))
+                    <div class="row mt-3">
+                            @foreach($data->images as $num => $dat)
+                                <div class="col-3 i-cont">
+                                    <div class="image_container d-flex">
 
-                                <img class="img-responsive images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo" width="100%">
-                                <div class="top-right">
-                                    <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
+                                        <img class="img-responsive images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo" width="100%">
+                                        <div class="top-right">
+                                            <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
                                 </div>
-                            </div>
-                            <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
-                        </div>
 
-                    @endforeach
-               </div>
-               @endif
+                            @endforeach
+                    </div>
+                @endif
 
                <br>
 
-                 @if(!isset($data->parent))
-                <div class="form-group">
+                @if(!isset($data->parent))
+                    <div class="form-group">
                         <label for="exampleInputFile">Выберите логотип ресторана</label>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -132,52 +132,54 @@
                                 </div>
                             </div>
 
-                        </div>
-                </div>
-               @endif
+                    </div>
 
-               @if(isset($data->parent))
-               <input type="text" name="latit" class="latit_inp"  hidden>
-                <input type="text" name="longit" class="longit_inp"  hidden>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                <label class="form-check-label">Kitchen Categories</label>
-                @foreach($kitchenCategories as $dat)
-                    <div class="form-check">
-                    <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]" @if ($data->kitchen_categories->contains($dat['id']))
-                        checked
-                    @endif>
-                    <label class="form-check-label">{{ $dat['name'] }}</label>
+                @endif
+
+                @if(isset($data->parent))
+                    <input type="text" name="latit" class="latit_inp"  hidden>
+                    <input type="text" name="longit" class="longit_inp"  hidden>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="form-check-label"> Категории кухонь </label>
+                                @foreach($kitchenCategories as $dat)
+                                    <div class="form-check">
+                                        <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]"
+                                            @if ($data->kitchen_categories->contains($dat['id']))
+                                                checked
+                                            @endif>
+                                        <label class="form-check-label">{{ $dat['name'] }}</label>
+                                    </div>
+                                @endforeach
+                        </div>
                     </div>
-                @endforeach
-                    </div>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label for="exampleInputFile">Выберите изображения</label>
+
+                    <div class="form-group ">
+                        <label for="exampleInputFile">Выберите изображения</label>
                         <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
-                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
+                                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Выберите файл</span>
+                                </div>
                         </div>
-                        <div class="input-group-append">
-                        <span class="input-group-text">Выберите файл</span>
-
-                            </div>
+                        <br>
+                        <div class="col">
+                                <div id="map" class="map"></div>
+                        </div>
                     </div>
-                <br>
-                <div class="col">
-                        <div id="map" class="map"></div>
-                </div>
-               @endif
-               <div class="cont-uploaded-images"></div>
-               <div class="row">
+                @endif
+                <div class="cont-uploaded-images d-flex"></div>
+                <div class="row">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
                     </div>
+                </div>
             </form>
-          </div>
-     </div>
+        </div>
+    </div>
 @endsection
 
 

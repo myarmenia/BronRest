@@ -23,11 +23,13 @@ function drag_drop(){
 
                 $c++
                         $l=event.target
-                        console.log($l)
+                        // $w=Math.floor($(this).width())
+                        // $h=Math.floor($(this).height())
+                        // console.log($h)
                         $clone_div=ui.draggable.clone()
                         $(event.target).html($clone_div)
                         $clone_div.append('<input class="form-control quantity-chair text-center" type="number" name="mm-'+$c+'" placeholder="quantity chair" required="true" aria-required="true" aria-invalid="true">')
-                        $clone_div.prepend('<div class="w-100 text-right x px-3">x</div>')
+                        $clone_div.prepend('<div class="text-right x" >x</div>')
                         if($('.width').val()>4 || $('.height').val()>4){
                             $('#table>tr>td>div>img').css('width', '60%')
                         }
