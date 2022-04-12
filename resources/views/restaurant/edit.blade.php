@@ -141,7 +141,7 @@
                 <input type="text" name="longit" class="longit_inp"  hidden>
                 <div class="col-sm-6">
                     <div class="form-group">
-                <label class="form-check-label">Kitchen Categories</label>
+                <label class="form-check-label">Категории кухонь</label>
                 @foreach($kitchenCategories as $dat)
                     <div class="form-check">
                     <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]" @if ($data->kitchen_categories->contains($dat['id']))
