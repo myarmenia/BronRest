@@ -4798,7 +4798,7 @@ textarea.form-control-lg {
   display: flex;
   padding-left: 0;
   list-style: none;
-  width: 0 !important;
+  width: 100%;
   margin: 0 auto !important;
 }
 

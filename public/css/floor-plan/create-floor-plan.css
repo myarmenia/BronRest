@@ -26,6 +26,7 @@
     justify-content: center;
   }
 .x{
+    height: 5px;
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;

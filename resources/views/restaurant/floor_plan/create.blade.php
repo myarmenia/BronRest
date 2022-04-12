@@ -97,7 +97,7 @@
                                     <div class="message mt-2 mx-5"></div>
                                     <!-- <input type="hidden" value="10" name="restaurant_id" id="restaurant_id"> -->
                                     <input type="hidden" name="data_json" value="" id="arr-tbl">
-                                    <input type="hidden" name="hidden_url" value="{{route('createFloorPlanData',request()->route('id'))}}" id="hidden-url">
+                                    <input type="hidden" name="hidden_url" data-name="create-floor-plan" value="{{route('createFloorPlanData',request()->route('id'))}}" id="hidden-url">
 
                                     {{-- <button type="submit" class="btn btn-rose">Create11<div class="ripple-container"></div></button> --}}
                                     <input type="submit" name="" value="Создать зал" class=" btn btn-primary">

@@ -8,13 +8,12 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Kitchen Categories Management</h2>
+            <div class="pull-left mt-3">
+                <h2>Управление категориями кухонь</h2>
             </div>
             <div class="pull-right">
                 @can('kitchen-cat-create')
-                    <button class="btn btn-success" data-toggle="modal" data-target="#createPerm"> Create New
-                        Categorie
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#createPerm"> Создать новую категорию
                     </button>
                 @endcan
             </div>
@@ -29,11 +28,11 @@
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-3">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th width="280px">Action</th>
+            <th>#</th>
+            <th>Имя</th>
+            <th width="280px">Действие</th>
         </tr>
         @foreach ($datas as $key => $data)
             <tr>
@@ -64,7 +63,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Category</h4>
+                    <h4 class="modal-title">Добавить категорию</h4>
                 </div>
                 <div class="modal-body">
                     <form action="{{route('kitchen_categories.store')}}" method="POST">
@@ -73,8 +72,8 @@
                             <input type="text" name="name" value="" class="form-control">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary">Сохранить</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                         </div>
                     </form>
                 </div>

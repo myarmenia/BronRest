@@ -3,14 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Permission Management</h2>
+            <div class="pull-left mt-3">
+                <h2>Управление разрешениями</h2>
             </div>
             <div class="pull-right">
                 @can('perm-create')
-                    <button class="btn btn-success" data-toggle="modal" data-target="#createPerm"> Create New
-                        Permission
-                    </button>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#createPerm"> Создать новое разрешение </button>
                 @endcan
             </div>
         </div>
@@ -18,17 +16,17 @@
 
 
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-primary">
             <p>{{ $message }}</p>
         </div>
     @endif
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-3">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th width="280px">Action</th>
+            <th>#</th>
+            <th>Имя</th>
+            <th width="280px">Действие</th>
         </tr>
         @foreach ($perms as $key => $perm)
             <tr>
@@ -37,7 +35,7 @@
                 <td>
                     @can('perm-delete')
                         {!! Form::open(['method' => 'DELETE','route' => ['permissions.destroy', $perm->id],'style'=>'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::submit('Удалить', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     @endcan
                 </td>
@@ -54,7 +52,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Permission</h4>
+                    <h4 class="modal-title">Добавить разрешение</h4>
                 </div>
                 <div class="modal-body">
                     <form action="{{route('permissions.store')}}" method="POST">
@@ -63,8 +61,8 @@
                             <input type="text" name="name" value="" class="form-control">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary">Сохранить</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                         </div>
                     </form>
                 </div>

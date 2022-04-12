@@ -106,7 +106,7 @@
 
                 </div>
                 <div class="form-group">
-                   
+
                     <div class="form-group card-body">
                         <label for="exampleInputFile">Выберите изображения</label>
                             <div class="input-group">
@@ -129,7 +129,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Сохранить</button>
+                        <button type="submit" class="btn btn-primary btn-block">Создать</button>
                     </div>
                 </div>
             </form>
