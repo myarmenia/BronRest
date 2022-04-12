@@ -13,7 +13,7 @@
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="img">
-                        <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
+                        <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="form-group">
-                    <label>Категория</label>
+                    <label>Category</label>
 
                         @if($categories)
                             <input class="form-control" list="datalistOptions" id="exampleDataList" name="category" value="{{$data['category']['name']}}">
@@ -39,13 +39,13 @@
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="">Название еды</label>
-                    <input type="text" class="form-control" id="" name="Название еды" value="{{$data['name']}}">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" id="" name="name" value="{{$data['name']}}">
                 </div>
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label for="">Цена</label>
+                    <label for="">Price</label>
                     <input pattern="^\d*(\.\d{0,2})?$" class="form-control" id="" name="price" value="{{$data['price']}}">
                 </div>
             </li>
@@ -57,7 +57,7 @@
             </li>
             <li class="list-group-item">
                 <div class="form-group">
-                    <label>Описание</label>
+                    <label>Description</label>
                     <textarea class="form-control" rows="3" placeholder="Enter ...">
                         {{$data['desc']}}
                     </textarea>
@@ -66,7 +66,7 @@
         </ul>
         <div class="card-body">
             <button class="btn btn-primary">
-                Сохранить изменения
+                Save
             </button>
         </div>
         </form>
