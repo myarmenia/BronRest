@@ -83,7 +83,7 @@
                     <input type="text" name="longit" class="longit_inp"  hidden>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="form-check-label">Kitchen Categories</label>
+                            <label class="form-check-label">Категории кухонь</label>
                             @foreach($kitchenCategories as $data)
                                 <div class="form-check">
                                     <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $data['id'] }}]">
@@ -106,18 +106,7 @@
 
                 </div>
                 <div class="form-group">
-                    {{-- <label for="exampleInputFile">Select Images</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-
-                            </div>
-                        <br>
-                    </div> --}}
+                   
                     <div class="form-group card-body">
                         <label for="exampleInputFile">Выберите изображения</label>
                             <div class="input-group">
