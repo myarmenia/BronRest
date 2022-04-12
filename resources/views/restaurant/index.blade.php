@@ -35,7 +35,7 @@
                         @endforeach
                         @else
                         <div class="col">
-                            <img class="card-img-top img-thumbnail" src="{{asset('./public/storage/restaurant/xe8E1wk503KkgxvNLnH0QCPG1M9jHgcYIQyTOSGU.png')}}" alt="Card image cap" style="width: 100px">
+                            <img class="card-img-top img-thumbnail" src="{{ route('getFile',['path' => 'public/restaurant/xe8E1wk503KkgxvNLnH0QCPG1M9jHgcYIQyTOSGU.png']) }}" alt="Card image cap" style="width: 100px">
                         </div>
                         @endif
                     @endif
