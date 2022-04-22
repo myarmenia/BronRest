@@ -4,6 +4,7 @@ namespace App\Models\Restaurant;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
 
 class Menu extends Model
 {
@@ -30,5 +31,10 @@ class Menu extends Model
     public function category()
     {
         return $this->hasOne(MenuCategory::class,'id','category_id');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }
