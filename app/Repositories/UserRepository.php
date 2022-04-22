@@ -17,7 +17,7 @@ class UserRepository
             'password' => $data['password'],
         ]);
 
-        $role = Role::where('name','User')->first();
+        $role = Role::where('name','RestaurantUser')->first();
 
         $user->assignRole([$role->id]);
 

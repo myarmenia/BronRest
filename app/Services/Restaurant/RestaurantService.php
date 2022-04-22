@@ -45,6 +45,12 @@ class RestaurantService
           }
           }
 
+          if(isset($data['kitchen_cats'])){
+            foreach($data['kitchen_cats'] as $dat => $v){
+                $res->kitchen_categories()->attach($dat);
+            }
+          }
+
 
           return $res;
 
@@ -69,8 +75,14 @@ class RestaurantService
           }
 
           if(isset($data['logo'])){
-               $deleted = $this->fileServ->delete($res->mainImage['path']);
-               $res->mainImage->delete();
+              if(isset($res->mainImage['path'])){
+                  $deleted = $this->fileServ->delete($res->mainImage['path']);
+                  $res->mainImage->delete();
+              }
+              else{
+                //   dd(444);
+              }
+
                $file = $this->fileServ->createImage($res['id'],$data['logo']);
                $image = new Image(['path' => $file,'main_img' => 1]);
                $res->images()->save($image);
@@ -104,6 +116,22 @@ class RestaurantService
                        }
                   }
              }
+
+             if(isset($data['kitchen_cats'])){
+                foreach($data['kitchen_cats'] as $dat => $v){
+                    $res->kitchen_categories()->syncWithoutDetaching($dat);
+                }
+
+                foreach($res->kitchen_categories as $d){
+
+                    if(!array_key_exists($d['id'], $data['kitchen_cats'])){
+                        $res->kitchen_categories()->detach($d['id']);
+                    }
+                }
+
+              }else{
+                $res->kitchen_categories()->detach();
+              }
 
      }
 

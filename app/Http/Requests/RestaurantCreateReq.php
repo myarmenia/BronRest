@@ -23,10 +23,11 @@ class RestaurantCreateReq extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'name' => 'nullable',
+            'name' => 'required',
             'phone_number' => 'required',
-            'desc' => 'nullable',
+            'desc' => 'required',
             'address' => 'nullable',
             'longit' => 'nullable',
             'latit' => 'nullable',
@@ -46,7 +47,8 @@ class RestaurantCreateReq extends FormRequest
             '6_end' => 'nullable',
             '7_start' => 'nullable',
             '7_end' => 'nullable',
-            'delete_image.*' => 'nullable'
+            'delete_image.*' => 'nullable',
+            'kitchen_cats.*' => 'nullable'
         ];
     }
 }

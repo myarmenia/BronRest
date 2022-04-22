@@ -33,7 +33,8 @@ class PermissionTableSeeder extends Seeder
             'kitchen-cat-delete',
             'kitchen-cat-edit',
             'restaurant',
-            'custom'
+            'custom',
+            'user-feedback'
 
 
         ];

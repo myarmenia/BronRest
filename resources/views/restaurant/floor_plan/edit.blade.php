@@ -10,7 +10,7 @@
                     <div class="card ">
                         <div class="card-header card-header-primary card-header-text">
                             <div class="card-text">
-                                <h4 class="card-title">Edit Floor Plan</h4>
+                                <h4 class="card-title">Редактировать зал</h4>
                             </div>
                         </div>
                         {{-- --------form-------------- --}}
@@ -46,30 +46,45 @@
                                     </div>
                                     <div class="w-50">
                                         <div class="form-group bmd-form-group has-danger">
-                                            <label class=" d-flex align-items-center " for="imageUpload"><span> floor plan image</span><span
+                                            {{-- <label class=" d-flex align-items-center " for="imageUpload"><span> Изображения макета</span><span
                                                     class="material-icons">
                                                    upload_file
                                                     </span>
                                             </label>
-                                            <input class="form-control img" id="imageUpload" type="file" name="img">
+                                            <input class="form-control img" id="imageUpload" type="file" name="img"> --}}
+                                            <label class=" d-flex align-items-center " for="imageUpload">
+                                                <span> Изображения макета</span>
+                                            </label>
+
+                                            <div class="input-group">
+                                                {{-- <div class="custom-file"> --}}
+                                                    {{-- <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"> --}}
+                                                    <input class="form-control img" id="imageUpload" type="file" name="img"  >
+                                                    <label class="custom-file-label" for="imageUpload">Выберите файл</label>
+                                                {{-- </div> --}}
+                                                {{-- <div class="input-group-append">
+                                                    <span class="input-group-text">Загрузить</span>
+                                                </div> --}}
+                                            </div>
+
                                         </div>
                                         <div class="d-flex">
                                             {{-- ---------table x--------------------- --}}
                                             <div class="form-group mr-3 bmd-form-group ">
-                                                <label class=" bmd-label-floating ">width</label>
+                                                <label class=" bmd-label-floating ">Ширина на метрах</label>
                                                 <input class="form-control width xy" type="number" name="table_x"
                                                        required="true" aria-required="true" aria-invalid="true"
                                                        value="{{$data->table_x}}">
                                             </div>
                                             {{-- ------------table y---------------------- --}}
                                             <div class="form-group mr-3 bmd-form-group ">
-                                                <label class="bmd-label-floating ">Height</label>
+                                                <label class="bmd-label-floating ">Длина на метрах</label>
                                                 <input class="form-control height xy" type="number" name="table_y"
                                                        required="true" aria-required="true" aria-invalid="true"
                                                        value="{{$data->table_y}}">
                                             </div>
                                             <div>
-                                                <div class="create-tbl btn btn-primary">create froor plane</div>
+                                                <div class="create-tbl btn btn-primary">Создать макет</div>
                                             </div>
                                         </div>
                                         {{-- ----------------------tables images-------------------------------- --}}
@@ -98,7 +113,7 @@
                                         </div>
                                         {{-- -----------Hall name---------------- --}}
                                         <div class="form-group mr-3 bmd-form-group mt-5">
-                                            <label class=" bmd-label-floating">Hall name</label>
+                                            <label class=" bmd-label-floating">Название зала</label>
                                             <input class="form-control hall-name" type="text" name="hall_name"
                                                    required="true" aria-required="true" aria-invalid="true"
                                                    value="{{$data->hall_name}}">
@@ -109,7 +124,7 @@
                                     <div class="col-sm-12">
                                         {{-- ------------description----------------------- --}}
                                         <div class="form-group mr-3 bmd-form-group mt-5">
-                                            <label class=" bmd-label-floating">Description</label>
+                                            <label class=" bmd-label-floating">Описание</label>
                                             <textarea class="form-control desc" name="description" required="true"
                                                       aria-required="true" aria-invalid="true">
                                             {{$data->description}}
@@ -123,10 +138,10 @@
                                 <div class="message mt-2 mx-5"></div>
                                 <input type="hidden" value="9" name="restaurnt_id" id="restaurant_id">
                                 <input type="hidden" name="data_json" value="" id="arr-tbl">
-                                <input type="hidden" name="hidden_url" value="{{route('updateFloorPlanData',request()->route('id'))}}" id="hidden-url">
+                                <input type="hidden" name="hidden_url" data-name="edit-floor-plan" value="{{route('updateFloorPlanData',request()->route('id'))}}" id="hidden-url">
                                 <input type="hidden" name="hidden_background_url" value="{{$data
 ->background_img}}">
-                                <input type="submit" name="" value="Edit floor plane" class=" btn btn-primary">
+                                <input type="submit" name="" value="Редактировать зал" class=" btn btn-primary">
                             </div>
                         </form>
                     </div>

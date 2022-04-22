@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Restaurant;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestaurantCreateReq;
+use App\Models\Restaurant\KitchenCategorie;
 use App\Models\Restaurant\Restaurant;
 use App\Services\Restaurant\RestaurantService;
 use Illuminate\Http\Request;
@@ -23,20 +24,24 @@ class RestaurantController extends Controller
 
     }
 
-    public function index($id = null){
+    public function index(Request $request, $id = null){
 
-        $paginate = 5;
+        $paginate = 6;
+
+        $i = $request['page'] ?  ($request['page'] - 1) * 6 : 0;
         $data = Restaurant::with('mainImage')
         ->where('user_id',Auth::user()->id)
         ->where('parent_id',$id)
         ->paginate($paginate);
 
-        return view('restaurant.index',compact('data'));
+        return view('restaurant.index',compact('data', 'i'));
     }
 
     public function create(){
         $days = \DB::table('days')->get();
-        return view('restaurant.create', compact('days'));
+        $kitchenCategories = KitchenCategorie::get();
+
+        return view('restaurant.create', compact('days','kitchenCategories'));
     }
 
     public function store(RestaurantCreateReq $request, $id = null){
@@ -47,17 +52,15 @@ class RestaurantController extends Controller
 
         $data = $request->validated();
 
-
-
         $data['parent_id'] = $id;
         $data['user_id'] = Auth::user()->id;
 
+
         $res = $this->restaurantServ->store($data);
 
-
-
-
-       return redirect()->route('editRestaurant',$res['id'])->with('status',200);
+       return redirect()->route('editRestaurant',$res['id'])
+       ->with('store',200);
+    //    ->with('status',200);
 
     }
 
@@ -65,8 +68,9 @@ class RestaurantController extends Controller
         $data = Restaurant::with('mainImage')
         ->find($id);
         $days = \DB::table('days')->get();
+        $kitchenCategories = KitchenCategorie::get();
 
-        return view('restaurant.edit',compact('data','days'));
+        return view('restaurant.edit',compact('data','days','kitchenCategories'));
     }
 
     public function editData(RestaurantCreateReq $request, $id){
@@ -76,8 +80,5 @@ class RestaurantController extends Controller
         return redirect()->back()->with('status',200);
 
     }
-
-
-
 
 }

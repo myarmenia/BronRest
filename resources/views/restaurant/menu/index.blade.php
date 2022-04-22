@@ -10,7 +10,7 @@
                 <div class="pull-left">
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" onClick="add()" href="javascript:void(0)"> Create </a>
+                    <a class="btn btn-primary" onClick="add()" href="javascript:void(0)"> Создать </a>
                 </div>
             </div>
         </div>
@@ -23,12 +23,12 @@
             <table class="table table-bordered" id="ajax-crud-datatable">
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Category</th>
+                    <th>#</th>
+                    <th>Название еды</th>
+                    <th>Цена</th>
+                    <th>Категория</th>
                     <th>Created at</th>
-                    <th>Action</th>
+                    <th>Действие</th>
                 </tr>
                 </thead>
             </table>
@@ -45,21 +45,21 @@
                     <form action="javascript:void(0)" id="CompanyForm" name="CompanyForm" class="form-horizontal" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Name</label>
+                            <label for="name" class="col-sm-2 control-label">Название еды</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Company" maxlength="50" required="">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Название еды" maxlength="50" required="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Price</label>
+                            <label for="name" class="col-sm-2 control-label">Цена</label>
                             <div class="col-sm-12">
                                 <input pattern="^\d*(\.\d{0,2})?$" class="form-control" id="price" name="price" placeholder="Enter Price" required="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Description</label>
+                            <label class="col-sm-2 control-label"> Описание</label>
                             <div class="">
-                                <textarea name="desc" id="" cols="102" rows="10"></textarea>
+                                <textarea name="desc" id="" class="w-100" rows="10"></textarea>
                             </div>
                         </div>
 
@@ -67,12 +67,12 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="exampleInputFile" name="img">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
+                                    <label class="custom-file-label" for="exampleInputFile">Выберите изображение</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Select Category</label>
+                            <label>Категория</label>
                             @if($categories)
                                 <input class="form-control" list="datalistOptions" id="exampleDataList" name="category">
                                 <datalist id="datalistOptions">
@@ -83,7 +83,7 @@
                             @endif
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary" id="btn-save">Save changes
+                            <button type="submit" class="btn btn-primary" id="btn-save">Сохранить изменения
                             </button>
                         </div>
                     </form>
@@ -113,13 +113,37 @@
             $('#ajax-crud-datatable').DataTable({
                 processing: true,
                 serverSide: true,
+                language: {
+                    "sProcessing":   "Подождите...",
+	"sLengthMenu":   "Показать _MENU_ записей",
+	"sZeroRecords":  "Записи отсутствуют.",
+	"sInfo":         "Записи с _START_ до _END_ из _TOTAL_ записей",
+	"sInfoEmpty":    "Записи с 0 до 0 из 0 записей",
+	"sInfoFiltered": "(отфильтровано из _MAX_ записей)",
+	"sInfoPostFix":  "",
+	"sSearch":       "Поиск:",
+	"sUrl":          "",
+	"oPaginate": {
+		"sFirst": "Первая",
+		"sPrevious": "Предыдущая",
+		"sNext": "Следующая",
+		"sLast": "Последняя"
+	},
+	"oAria": {
+		"sSortAscending":  ": активировать для сортировки столбца по возрастанию",
+		"sSortDescending": ": активировать для сортировки столбцов по убыванию"
+	}
+                 },
                 ajax: "{{ route('restMenu',request()->route('id') ) }}",
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
                     { data: 'price', name: 'price' },
                     { data: 'category.name', name: 'category_id' },
-                    { data: 'created_at', name: 'created_at' },
+                    { data: 'img', render : function ( data, type, row, meta ) {
+                            let img = `<img src="/get_file?path=${data}" width="50">`
+                            return img
+                        } },
                     {data: "id" , render : function ( data, type, row, meta ) {
                             let but = `<div>
                             <button class="btn" onclick="deleteFunc('${data}')">
@@ -137,7 +161,7 @@
         });
         function add(){
             $('#CompanyForm').trigger("reset");
-            $('#CompanyModal').html("Add Company");
+            $('#CompanyModal').html("Добавить блюда");
             $('#company-modal').modal('show');
             $('#id').val('');
         }

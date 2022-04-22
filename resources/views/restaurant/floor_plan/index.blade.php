@@ -4,7 +4,7 @@
 
 @section('content')
     <a type="button" class="btn btn-block btn-primary" href="{{route('addFloorPlan',request()->route('id') ?? null)}}">
-        Add Floor Plan
+        Создать зал
     </a>
     <br>
 
@@ -20,7 +20,7 @@
                         {{$dat['description'] ?? null}}
                     </p>
                     <a href="{{route('editFloorPlan',$dat['id'])}}" class="btn btn-primary">
-                        <i class="fas fa-edit"></i>
+                        Редактировать
                     </a>
                 </div>
             </div>
