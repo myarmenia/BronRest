@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Restaurant\Menu;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Restaurant\Restaurant;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -50,5 +52,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function setPasswordAttribute($v){
         $this->attributes['password'] = Hash::make($v);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function favoriteRests(){
+        return $this->belongsToMany(Restaurant::class,'user_favorite_restaurants');
+    }
+
+    public function perfDishes(){
+        return $this->belongsToMany(Menu::class,'user_preference_dishes','user_id','dishes_id');
     }
 }

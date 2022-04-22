@@ -13,13 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_orders', function (Blueprint $table) {
+        Schema::create('user_favorite_restaurants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('restaurant_id');
-            $table->dateTime('coming_date');
-            $table->integer('people_nums');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+
+            $table->foreign('restaurant_id')
+            ->references('id')
+            ->on('restaurants')
+            ->onDelete('cascade');
         });
     }
 
@@ -30,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_order');
+        Schema::dropIfExists('user_favorite_restaurants');
     }
 };
