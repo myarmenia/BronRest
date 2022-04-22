@@ -338,6 +338,13 @@ return [
             ],
         ],
 
+        ['header' => 'Feedback', 'can' => 'user-feedback'],
+        [
+            'text' => 'Feedback',
+            'route' => 'seeFeedbacks',
+            'can' => 'user-feedback',
+        ],
+
         ['header' => 'Roles And Permissions', 'can' => 'role-list'],
         [
             'text' => 'roles',

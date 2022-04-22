@@ -8,6 +8,7 @@ use App\Http\Controllers\API\Restaurant\RestaurantController;
 use App\Http\Controllers\API\Restaurant\MenuController;
 use App\Http\Controllers\API\Restaurant\KitchenCategorieController;
 use Spatie\Permission\Contracts\Role;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,8 @@ Route::group(["middleware" => ["auth:api"]],function(){
         Route::get('/preference',[OrderController::class ,'preference']);
         Route::patch('/preference/{id}',[MenuController::class ,'storePreference']);
     });
+
+    Route::post('feedback',[FeedbackController::class,'store']);
 
 });
 
