@@ -46,23 +46,33 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->hasRole('Admin');
     }
 
-    public function setPasswordAttribute($v){
+    public function setPasswordAttribute($v)
+    {
         $this->attributes['password'] = Hash::make($v);
     }
 
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany(Order::class);
     }
 
-    public function favoriteRests(){
+    public function favoriteRests()
+    {
         return $this->belongsToMany(Restaurant::class,'user_favorite_restaurants');
     }
 
-    public function perfDishes(){
+    public function perfDishes()
+    {
         return $this->belongsToMany(Menu::class,'user_preference_dishes','user_id','dishes_id');
+    }
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
     }
 }

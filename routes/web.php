@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Restaurant\FloorPlanController;
 use App\Http\Controllers\Restaurant\MenuController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,11 @@ Route::group(['middleware' => ['auth']], function() {
             Route::resource('roles', RoleController::class);
             Route::resource('users', AdminEditUserController::class);
             Route::resource('permissions', PermissionController::class);
-
+            Route::group(['prefix' => 'feedback'], function(){
+                Route::get('/',[FeedbackController::class,'index'])->name('seeFeedbacks');
+                Route::get('/{id}',[FeedbackController::class,'show'])->name('showFeedback')->where('id', '[0-9]+');
+                Route::delete('/destroy/{id}',[FeedbackController::class,'destroy'])->name('destroyFeedback')->where('id', '[0-9]+');
+            });
         });
 
         Route::resource('kitchen_categories', KitchenCategorieController::class);

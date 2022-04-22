@@ -16,6 +16,8 @@ class ValidateRepository
             echo json_encode($validator->errors(),JSON_UNESCAPED_UNICODE );
             die;
         }
+
+        return $validator->validated();
     }
 
 }
