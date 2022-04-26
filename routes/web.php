@@ -12,6 +12,7 @@ use App\Http\Controllers\Restaurant\FloorPlanController;
 use App\Http\Controllers\Restaurant\MenuController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\UserOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,11 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::put('/update/{id}',[MenuController::class,'update'])->name('restMenuUpdate')->where('id', '[0-9]+');
             });
 
+        });
+        Route::group(['prefix' => 'user-orders'], function(){
+            Route::get('/',[UserOrderController::class,'index'])->name('userOrders');
+            Route::get('/show/{id}',[UserOrderController::class,'show'])->name('userShow');
+            Route::post('/store/{id}',[UserOrderController::class,'store'])->name('userOrderStore');
         });
     });
 });

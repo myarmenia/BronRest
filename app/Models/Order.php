@@ -19,6 +19,7 @@ class Order extends Model
         'floor_plane_id',
         'coming_date',
         'people_nums',
+        'status'
         ];
 
 
@@ -35,5 +36,10 @@ class Order extends Model
     public function rest()
     {
         return $this->hasOne(Restaurant::class,'id','restaurant_id')->select('id','name');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class)->select('email');
     }
 }

@@ -25,7 +25,9 @@ return [
     'permissions'                   => 'Разрешения',
     'Restaurants'                   => 'Рестораны',
     'Kitchen Categories'            => 'Категории кухонь',
-    'Feedback'                      => 'Обратная связь'
+    'Feedback'                      => 'Обратная связь',
+    'Orders'                        => 'Заказы',
+    'User Orders'                   => 'Заказы пользователей',
 
 
 

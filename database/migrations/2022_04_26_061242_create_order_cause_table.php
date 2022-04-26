@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_orders', function (Blueprint $table) {
+        Schema::create('order_cause', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('restaurant_id');
-            $table->dateTime('coming_date');
-            $table->integer('people_nums');
-            $table->tinyInteger('status')->default(0);
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_order');
+        Schema::dropIfExists('order_cause');
     }
 };

@@ -345,6 +345,13 @@ return [
             'can' => 'user-feedback',
         ],
 
+        ['header' => 'User Orders', 'can' => 'restaurant'],
+        [
+            'text' => 'Orders',
+            'route' => 'userOrders',
+            'can' => 'restaurant'
+        ],
+
         ['header' => 'Roles And Permissions', 'can' => 'role-list'],
         [
             'text' => 'roles',
