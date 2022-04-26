@@ -50,6 +50,5 @@ class UserOrderController extends Controller
         $user->notify(new OrderCauseNot($request['cause']));
 
         return redirect()->back();
-
     }
 }
