@@ -34,7 +34,6 @@ Route::group(["prefix" => "restaurant"],function(){
     Route::get('/{id}',[RestaurantController::class ,'single'])->where('id', '[0-9]+');
 
     Route::group(["prefix" => "menu"],function(){
-
         Route::get('/{id}',[MenuController::class ,'index']);
         Route::get('/categories/{id}',[MenuController::class ,'categories']);
         Route::get('/single/{id}',[MenuController::class ,'single']);
