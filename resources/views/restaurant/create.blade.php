@@ -80,6 +80,7 @@
                 @if(request()->route('id'))
                 <div class="row form-group">
                     <input type="text" name="latit" class="latit_inp"  hidden>
+                    <input type="text" name="address" class="address_inp"  hidden>
                     <input type="text" name="longit" class="longit_inp"  hidden>
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -121,7 +122,7 @@
                     </div>
 
                     <div class="col">
-                        <div id="map" class="map"></div>
+                        <div id="map" style="width: 100%; height: 400px"></div>
                     </div>
                 @endif
 
@@ -139,52 +140,19 @@
 @endsection
 
 @section('css')
-    <style>
-        .map {
-        height: 400px;
-        width: 100%;
-      }
-    </style>
 @stop
 
 @section('js')
+<script src="https://api-maps.yandex.ru/2.1/?apikey=a750744b-d04d-479b-9650-d81ed44bfffc&lang=ru_RU" type="text/javascript">
+</script>
 <script src="{{ asset('assets/js/uploade_file.js') }}"></script>
 <script src="{{ asset('assets/js/work_days.js') }}"></script>
 
 @if(request()->route('id'))
         <script src="{{mix ('js/app.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
-        <script src="https://unpkg.com/ol-geocoder"></script>
 
 
     <script type="text/javascript">
-         var map = new ol.Map({
-        target: 'map',
-        layers: [
-          new ol.layer.Tile({
-            source: new ol.source.OSM()
-          })
-        ],
-        view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
-          zoom: 4
-        })
-      });
-
-      1
-
-
-    map.on('click', function(evt) {
-        let coords = ol.proj.toLonLat(evt.coordinate);
-        let lat = coords[1];
-        let lon = coords[0];
-        $('.latit_inp').val(lat)
-        $('.longit_inp').val(lon)
-        console.log(lon);
-
-    });
-
-
 
     $('.checkbox_fuc').on('change', function (e) {
     if ($('.checkbox_fuc:checked').length > 3) {
@@ -192,6 +160,11 @@
         alert("allowed only 3");
     }
 });
+    </script>
+    <script type="text/javascript" src="{{asset('js/yandex_map.js')}}"> 
+    </script>
+    <script>
+        start()    
     </script>
 @endif
 @endsection
