@@ -20,6 +20,11 @@
                 <a href="#" class="nav_branding">Tap Table</a>
                 <ul class="nav_menu">
                     <a href="#" class="nav_branding nav_branding2">Tap Table</a>
+                    @if(Auth::check())
+                    <li class="nav_item">
+                        <a href="{{route('home')}}" class="nav_link">Профиль</a>
+                    </li>
+                    @endif
                     <li class="nav_item">
                         <a href="#" class="nav_link">О компании</a>
                     </li>
@@ -154,13 +159,14 @@
                 <img src="{{route('getFile',['path' => 'public/main_images/close.png'])}}" >
             </div>
             <h1 class="reg_title">Регистрация</h1>
-     
+            <form method="POST" action="{{route('register')}}">
+                @csrf
             <div class="reg_input_box">
                 <div class="reg_input">
-                    <input type="text"  placeholder="Имя" class="input_itme">
-                    <input type="email" placeholder="Email" class="input_itme">
-                    <input type="password" placeholder="Пароль" class="input_itme">
-                    <input type="password" placeholder="Подтвердить пароль" class="input_itme">
+                    <input type="text"  placeholder="Имя" class="input_itme" name="name" required>
+                    <input type="email" placeholder="Email" class="input_itme" name="email" required>
+                    <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
+                    <input type="password" placeholder="Подтвердить пароль" class="input_itme" name="password_confirmation" required>
      
                     <div class="checkbox">
                      <input type="checkbox"  />
@@ -172,6 +178,7 @@
                    
                 </div>
             </div>
+            </form>
         </div>
      
      </div>
@@ -186,15 +193,17 @@
                 <img src="{{route('getFile',['path' => 'public/main_images/close.png'])}}" >
             </div>
             <h1 class="reg_title">вход</h1>
-     
+        <form method="POST" action="{{route('login')}}">
+            @csrf
             <div class="reg_input_box">
                 <div class="reg_input">
-                    <input type="email" placeholder="Email" class="input_itme">
-                    <input type="password" placeholder="Пароль" class="input_itme">
+                    <input type="email" placeholder="Email" class="input_itme" name="email" required>
+                    <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
      
                     <button class="itme_btn itme_btn2">вход</button>
                 </div>
             </div>
+        </form>
         </div>
      
      </div>
