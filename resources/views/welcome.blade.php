@@ -11,10 +11,10 @@
 <body>
 
     <!-- ---------------------- -->
-   
+
 <div class="background">
     <img src="{{route('getFile',['path' => 'public/main_images/banner.jpg'])}}"></div>
-  
+
         <header class="header">
             <nav class="navbar">
                 <a href="#" class="nav_branding">Tap Table</a>
@@ -50,33 +50,33 @@
             <h1 class="het_title">Lorem ipsum</h1>
             <p class="hed_text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Nunc in convallis odio. Aliquam erat volutpat. Vivamus accumsan interdum
-                eros non dignissim. Vivamus magna sem, lacinia blandit  ultricies quis, sagittis in orci. Duis et pulvinar lectus,  ut tempus leo. Ut at dui lorem.Lorem ipsum dolor sit amet, consectetur 
+                eros non dignissim. Vivamus magna sem, lacinia blandit  ultricies quis, sagittis in orci. Duis et pulvinar lectus,  ut tempus leo. Ut at dui lorem.Lorem ipsum dolor sit amet, consectetur
             </p>
             <br>
             <br>
             <br>
-        
+
 
             <div class="epp_google">
             <p class="hed_text">magna sem, lacinia blandit ultricies </p>
 
                 <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
                 <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
-                
+
             </div>
         </div>
-   
+
         <div class="epp_google_2">
             <p class="hed_text">magna sem, lacinia blandit ultricies </p>
                  <div class="stor_play">
                     <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
                     <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
                  </div>
-               
-                
+
+
             </div>
-    
-   
+
+
     <!-- ------------------------------------------------------------------------------------------ -->
 
 
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 </div>
@@ -167,20 +167,20 @@
                     <input type="email" placeholder="Email" class="input_itme" name="email" required>
                     <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
                     <input type="password" placeholder="Подтвердить пароль" class="input_itme" name="password_confirmation" required>
-     
+
                     <div class="checkbox">
                      <input type="checkbox"  />
                      <label for="check">Запомнить</label>
                     </div>
-     
+
                     <button class="itme_btn">Зарегистрироватся</button>
-                    
-                   
+
+
                 </div>
             </div>
             </form>
         </div>
-     
+
      </div>
 </div>
 
@@ -199,13 +199,13 @@
                 <div class="reg_input">
                     <input type="email" placeholder="Email" class="input_itme" name="email" required>
                     <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
-     
+
                     <button class="itme_btn itme_btn2">вход</button>
                 </div>
             </div>
         </form>
         </div>
-     
+
      </div>
 </div>
 
