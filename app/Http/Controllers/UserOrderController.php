@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Notifications\OrderCauseNot;
 use App\Services\UserOrderService;
+use App\Services\MessageService;
 
 
 class UserOrderController extends Controller
@@ -49,6 +50,11 @@ class UserOrderController extends Controller
         $user = User::find($order['user_id']);
         $user->notify(new OrderCauseNot($request['cause']));
 
+        if($user['phone_number']){
+            $message = new MessageService();
+            $message->sendSMS($user->phone_number,$request['cause']);
+        }
+        
         return redirect()->back();
     }
 }
