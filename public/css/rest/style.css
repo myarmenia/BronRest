@@ -1,0 +1,71 @@
+body{
+    background: #171818;
+}
+
+.k_content_wrapper, .k_login_card_body{
+    background: #171818;
+}
+
+.k_text_area{
+    height: 140px;
+}
+
+.k_container{
+    width: 80%;
+}
+
+.k_form_control{
+    background: #283135;
+    border: none;
+    border-radius: 30px;
+}
+
+.k_form_control:focus{
+    background: #283135
+}
+
+textarea.k_form_control{
+    height: 141px;
+}
+
+.k_col{
+    padding: 0;
+}
+
+.k_custom_file_label{
+    background: #283135;
+    height: calc(2.25rem + 2px);
+    border: none;
+}
+
+.k_input_group{
+    background: #283135;
+
+}
+
+.k_custom_file_label:after{
+    border: 1px solid;
+}
+
+.k_btn_lime{
+    padding: 0;
+    margin-top: 15px;
+    max-width: 35%;
+}
+
+.k_lime{
+    border: 2px solid #648E00;
+    background: transparent;
+}
+
+.k_lime:hover{
+    background: linear-gradient( to left, #005100 0%, #648E00 100%);
+}
+.row_mine{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+
+
+
