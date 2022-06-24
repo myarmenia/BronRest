@@ -66,6 +66,16 @@ textarea.k_form_control{
     justify-content: center !important;
 }
 
-
+.test{
+   
+    display: flex;
+    justify-content: center;
+}
+.test3{
+ 
+}
+.card{
+    height: 650px;
+}
 
 
