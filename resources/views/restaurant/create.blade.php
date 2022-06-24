@@ -4,7 +4,7 @@
 @section('css')
     <link href="{{ asset('assets/css/uploade-file.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/rest/style.css?2') }}">
+    <link rel="stylesheet" href="{{ asset('css/rest/style.css') }}">
 
 @endsection
 @section('content')
@@ -34,7 +34,7 @@
 
                 <div class="form-group mb-3">
                     <label >Номер телефона</label>
-                    <input type="text" class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }} k_form_control" placeholder="Номер телефона" name="phone_number" value="{{ old('phone_number') }}">
+                    <input type="number" class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }} k_form_control" placeholder="Номер телефона" name="phone_number" value="{{ old('phone_number') }}">
                     {{-- <div class="input-group-append">
                         <div class="input-group-text">
                         </div>
@@ -127,9 +127,16 @@
                 @endif
 
                 <div class="cont-uploaded-images"></div>
-                <div id="classRight" class="classRight">
+                <!-- <div id="classRight" class="classRight">
                     <div class="row">
                         <div class="col-12 k_btn_lime">
+                            <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="test">
+                    <div class="test2">
+                        <div class="col-12 test3">
                             <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
                         </div>
                     </div>

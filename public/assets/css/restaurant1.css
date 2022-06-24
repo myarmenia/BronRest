@@ -1,0 +1,241 @@
+
+
+
+/* ----------------------------------------------------- */
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0 0 0;
+}
+
+.content_box {
+    width: 45%;
+}
+
+.amount {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-right: 10px;
+    border: 1px solid #648E00;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.amount span {
+    color: #5F6368;
+}
+
+.content_box input {
+    width: 100%;
+    height: 46px;
+    border-radius: 30px;
+    padding: 0 15px;
+    background-color: #2B3135;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.content_box input:focus {
+    color: #fff;
+    /* background-color: #3db12f; */
+}
+
+.select {
+    outline: 0;
+    box-shadow: none;
+    background-color: #2B3135;
+    background-image: none;
+    border: none;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 46px;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: 30px;
+    flex: 1;
+    padding: 0 15px;
+    cursor: pointer;
+    color: #5F6368;
+    margin-bottom: 20px;
+}
+
+.select::-ms-expand {
+    display: none;
+}
+
+.textarea {
+    background-color: #2B3135;
+    color: #5F6368;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    resize: none;
+    outline: none;
+    width: 100%;
+    height: 140.88px;
+    color: #fff;
+}
+
+.time_work {
+    padding: 20px 0;
+}
+
+.time_text {
+    font-size: 20px;
+    color: #5F6368;
+    margin-bottom: 20px;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    flex-direction: column;
+}
+
+.time hr {
+    width: 20px;
+    height: 2px;
+    border-radius: 30px;
+    background-color: #2B3135;
+    border: none;
+}
+
+.time input {
+    width: 151px;
+    height: 46px;
+    background-color: #2B3135;
+    border: none;
+    padding: 0 15px;
+    color: #5F6368;
+    font-size: 16px;
+    border-radius: 30px;
+    outline: none;
+}
+
+input[type=text] {
+    color: #fff;
+}
+
+.time input:focus {
+    color: #fff;
+}
+
+.time input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(48%) sepia(13%) saturate(327%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+
+.time_work .time .select_02 {
+    max-width: 191px;
+    margin: 0;
+}
+
+.time_photo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time_photo img {
+    width: 99.02px;
+    height: 99.02px;
+    border-radius: 20px;
+}
+
+.button {
+    margin: 30px 0 50px;
+}
+
+.btn1 {
+    width: 164.29px;
+    height: 46px;
+    border: none;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #648E00;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.btn1:hover {
+    background: linear-gradient( to left, #005100 0%, #648E00 100%);
+}
+.pp{
+    background-color: #343a40;
+    display: flex;
+   justify-content: center;
+}
+
+
+/* .btn_02 {
+    background: linear-gradient( to left, #005100 0%, #648E00 100%);
+} */
+
+
+/* ----------------------------------------- */
+
+.profile {
+    position: absolute;
+    content: "";
+    top: 17%;
+    left: 5%;
+    width: 261.1px;
+    height: 181.01px;
+    border-radius: 10px;
+    background-color: #202124;
+    padding: 20px;
+}
+
+.profile_title {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.profile hr {
+    width: 149px;
+    border: none;
+    height: 1px;
+    background-color: #2B3135;
+    margin: 10px 0;
+}
+
+.profile_text {
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 15px;
+    display: block;
+    transition: 0.5s;
+}
+
+.profile_text:hover {
+    color: #648E00;
+}
