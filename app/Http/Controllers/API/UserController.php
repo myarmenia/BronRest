@@ -37,7 +37,14 @@ class UserController extends Controller
             'phone_number' => null,
             'scope' => '',
         ]);
-        return $response->json();
+
+        if($response->ok())
+        {
+            return $response->json();
+        }
+
+        return response()->json(['message'=>'Invalid email or password'],422);
+
     }
 
     public function signUp(Request $request)
@@ -50,7 +57,9 @@ class UserController extends Controller
 
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            $response = response()->json($validator->errors(), 422,['Content-type'=>'application/json;charset=utf-8'],JSON_UNESCAPED_UNICODE);
+
+            return $response;
         }
 
         $userRep = new UserRepository();
@@ -94,7 +103,9 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            $response = response()->json($validator->errors(), 422,['Content-type'=>'application/json;charset=utf-8'],JSON_UNESCAPED_UNICODE);
+
+            return $response;
         }
 
         $value = \Cache::get($request->phone_number);
