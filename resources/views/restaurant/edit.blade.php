@@ -115,17 +115,19 @@
         @if(isset($data->images))
             <div class="row mt-3">
                 @foreach($data->images as $num => $dat)
-                <div class="time_img image_container">
-                    <div class="time_photo">
-                        <img class="images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo">
-                            <div class="top-right">
-                                <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                    </div>
-                    <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
-                </div>
+            
+                                <div class="col-3 i-cont bag_img">
+                                    <div class="image_container d-flex">
+
+                                        <img class="img-responsive images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo" width="100%">
+                                        <div class="top-right">
+                                            <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
+                                </div>
                 @endforeach
             </div>
         @endif
@@ -139,7 +141,7 @@
                         </div>
                     </div>
             </div>
-
+            <div class="cont-uploaded-images d-flex"></div>
         @endif
 
                 @if(isset($data->parent))
@@ -169,14 +171,16 @@
                                         <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                                     </div>
                                 </div>
+                               
                         </div>
+                        <div class="cont-uploaded-images d-flex"></div>
                         <br>
                         <div class="col">
                             <div id="map" style="width: 100%; height: 400px"></div>
                         </div>
                     </div>
                 @endif
-                <div class="cont-uploaded-images d-flex"></div>
+               
                 <div class="row">
                     <div class="button">
                         <button type="submit" class="btn btn1">Сохранить</button>
@@ -187,8 +191,8 @@
 </div>
 <!-- -------------------------------------------------->
    
-    
-            <!-- <form action="{{route('editRestaurantData',request()->route('id'))}}" method="post" enctype="multipart/form-data" name="some2">
+<!--     
+            <form action="{{route('editRestaurantData',request()->route('id'))}}" method="post" enctype="multipart/form-data" name="some2">
                 @csrf
                 @method('put')
 

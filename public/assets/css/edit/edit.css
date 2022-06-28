@@ -8,8 +8,8 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 16px;
-
-
+    background-color: #343a40;
+    
 }
 
 
@@ -55,6 +55,7 @@
     outline: none;
     border: none;
     margin-bottom: 20px;
+    color: white;
 }
 
 .content_box input:focus {
@@ -180,7 +181,9 @@ input[type=text] {
     font-size: 16px;
     margin-right: 20px;
 }
-
+.card{
+    background-color: #2B3135;
+}
 .button a {
     text-decoration: none;
 }
@@ -195,9 +198,9 @@ input[type=text] {
 }
 
 
-/* .btn_02 {
+.btn_02 {
     background: linear-gradient( to left, #005100 0%, #648E00 100%);
-} */
+}
 
 
 /* ----------------------------------------- */
