@@ -79,7 +79,9 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            $response = response()->json($validator->errors(), 422,['Content-type'=>'application/json;charset=utf-8'],JSON_UNESCAPED_UNICODE);
+
+            return $response;
         }
 
         $rnd = rand(1000,9999);
