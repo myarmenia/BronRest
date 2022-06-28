@@ -3,11 +3,19 @@
    width: 49%;
 }
 .image_container{
+   
     width: 150px
 }
 .image_container .images{
-    width: 100%
+    width: 100%;
+    border-radius: 12px;
 }
+.bag_img{
+    display: flex;
+    flex-direction: row;
+    max-width: 13%;
+}
+
 @media (max-width: 425px) {
     .cont-restaurant .card
     {

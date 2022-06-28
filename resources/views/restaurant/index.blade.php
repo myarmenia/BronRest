@@ -123,8 +123,12 @@
                         </a>
                     @endif
                    <br>
+                   
                     <a href="{{route('editRestaurant',$dat['id'])}}">
-                        <img src="{{ asset('assets/images/Group_1134.png') }}" alt="pan"> Редактировать
+                        <img src="{{ asset('assets/images/Group_1134.png') }}" alt="pan">Редактировать
+                        @if(request()->route('id'))
+                           и добавить меню
+                         @endif
                     </a>
             </div>
             <br>
