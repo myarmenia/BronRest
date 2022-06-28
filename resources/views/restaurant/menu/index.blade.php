@@ -1,10 +1,14 @@
 @extends('adminlte::page')
 
 @section('title', 'Create Restauranat')
-
+@section('css')
+   
+    <link href="{{ asset('assets/css/accordion.css') }}" rel="stylesheet">
+   
+@endsection
 @section('content')
 
-    <div class="container mt-2">
+    <!-- <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
@@ -33,7 +37,8 @@
                 </thead>
             </table>
         </div>
-    </div>
+    </div> -->
+    
     <!-- boostrap company model -->
     <div class="modal fade" id="company-modal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -83,8 +88,7 @@
                             @endif
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary" id="btn-save">Сохранить изменения
-                            </button>
+                            <button type="submit" class="btn btn-primary" id="btn-save">Сохранить изменения</button>
                         </div>
                     </form>
                 </div>
@@ -94,6 +98,165 @@
         </div>
     </div>
     <!-- end bootstrap model -->
+    <div class="container">
+    <div class="accordion">
+    <a class="btn btn1" onClick="add()" href="javascript:void(0)"> Создать </a><br><br>
+   
+            <div class="accordion_item ">
+                <div class="accordion_title ">
+                    <div class="accordion_titimg " >
+                        <h1>Основные блюда</h1>
+                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
+                    </div>
+                    <div class="deg">
+                        <img src="{{ asset('assets/images/Vector-65.png') }}">
+                    </div>
+                </div>
+                @foreach($data as $datas)
+                @if($datas->category_id == 1)
+                <div class="accordion_answer ">
+                    <div class="price ">
+                        <div class="price_box ">
+                            <div class="price_img ">
+                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
+                            </div>
+                            <div class="price_text ">
+                                <div class="price_dish ">
+                                    <p>Название Блюда : {{$datas->name}}</p>
+                                    <p>Цена : {{$datas->price}}</p>
+                                </div>
+                                <p class="price_dish_text ">{{$datas->desc}}</p>
+                            </div>
+                            <div class="price_icon ">
+                                <i class="fa fa-ban "></i>
+                                <!-- <img src="images/Group-1260.png "> -->
+                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
+                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+            <div class="accordion_item ">
+                <div class="accordion_title ">
+                    <div class="accordion_titimg " >
+                        <h1>Десерты</h1>
+                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
+                    </div>
+
+                    <div class="deg">
+                    <img src="{{ asset('assets/images/Vector-65.png') }}">
+
+                    </div>
+                </div>
+                @foreach($data as $datas)
+                @if($datas->category_id == 2)
+                <div class="accordion_answer ">
+                    <div class="price ">
+                        <div class="price_box ">
+                            <div class="price_img ">
+                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
+                            </div>
+                            <div class="price_text ">
+                                <div class="price_dish ">
+                                    <p>Название Блюда : {{$datas->name}}</p>
+                                    <p>Цена : {{$datas->price}}</p>
+                                </div>
+                                <p class="price_dish_text ">{{$datas->desc}}</p>
+                            </div>
+                            <div class="price_icon ">
+                                <i class="fa fa-ban "></i>
+                                <!-- <img src="images/Group-1260.png "> -->
+                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
+                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+            <div class="accordion_item ">
+                <div class="accordion_title ">
+                    <div class="accordion_titimg " >
+                        <h1>Напитки</h1>
+                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
+                    </div>
+
+                    <img src="{{ asset('assets/images/Vector-65.png') }}">
+                </div>
+                @foreach($data as $datas)
+                @if($datas->category_id == 3)
+                <div class="accordion_answer ">
+                    <div class="price ">
+                        <div class="price_box ">
+                            <div class="price_img ">
+                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
+                            </div>
+                            <div class="price_text ">
+                                <div class="price_dish ">
+                                    <p>Название Блюда : {{$datas->name}}</p>
+                                    <p>Цена : {{$datas->price}}</p>
+                                </div>
+                                <p class="price_dish_text ">{{$datas->desc}}</p>
+                            </div>
+                            <div class="price_icon ">
+                                <i class="fa fa-ban "></i>
+                                <!-- <img src="images/Group-1260.png "> -->
+                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
+                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            </div>
+            
+            <div class="accordion_item ">
+                <div class="accordion_title ">
+                    <div class="accordion_titimg ">
+                        <h1>Алкогольные напитки</h1>
+                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png ') }}"></a>
+                    </div>
+
+                    <img src="{{ asset('assets/images/Vector-65.png') }}">
+                </div>
+                @foreach($data as $datas)
+                @if($datas->category_id == 4)
+                <div class="accordion_answer ">
+                    <div class="price ">
+                        <div class="price_box ">
+                            <div class="price_img ">
+                                <img src="{{ asset('assets/images/fod.jpg') }} ">
+                            </div>
+                            <div class="price_text ">
+                                <div class="price_dish ">
+                                    <p>Название Блюда</p>
+                                    <p>1000 руб.</p>
+                                </div>
+                                <p class="price_dish_text ">Ингридиенты: куриное филе, помидоры черри, сыр пармезан, хлеб, помидоры черри, сыр пармезан, хлеб, чеснок...</p>
+                            </div>
+                            <div class="price_icon ">
+                                <i class="fa fa-ban "></i>
+                                <!-- <img src="images/Group-1260.png "> -->
+                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
+                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @endforeach
+        </div>
+        </div>
 @endsection
 
 
@@ -102,6 +265,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link  href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/js/accardion.js') }}"></script>
     <script src="/js/app.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
@@ -146,7 +310,7 @@
                         } },
                     {data: "id" , render : function ( data, type, row, meta ) {
                             let but = `<div>
-                            <button class="btn" onclick="deleteFunc('${data}')">
+                            <button class="btn" onclick="deleteFunc5('${data}')">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
                             <a class="btn" href="{{url('restaurant/menu/edit')}}/${data}">
@@ -218,5 +382,10 @@
                 }
             });
         });
+
+    </script>
+    <script>
+     
+        
     </script>
 @endsection

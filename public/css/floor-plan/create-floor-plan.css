@@ -79,3 +79,32 @@ td>div label {
         width: 100% !important;
     }
 }
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    background-color: #343a40;
+    
+}
+.time_text {
+    font-size: 20px;
+    color: #5F6368;
+    margin-bottom: 20px;
+}
+.btn1 {
+    width: 164.29px;
+    height: 46px;
+    border: none;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #648E00;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.btn1:hover {
+    background: linear-gradient( to left, #005100 0%, #648E00 100%);
+}

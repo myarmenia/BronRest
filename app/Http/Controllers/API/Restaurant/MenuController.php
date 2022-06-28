@@ -18,10 +18,12 @@ class MenuController extends Controller
         }
         $data = $data->get();
 
-        return response()->json([
-            'data' => $data,
-            'status' => 200
-       ]);
+    //     return response()->json([
+    //         'data' => $data,
+    //         'status' => 200
+    //    ]);
+    
+        return view('restaurant.menu.index',compact('data'));
     }
 
     public function categories($id)

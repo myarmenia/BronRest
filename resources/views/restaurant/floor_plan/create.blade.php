@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection --}}
 @section('content')
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
+<div class="container">
+    <div class="card-body">
+            <div class="">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="">
                             <div class="card-header card-header-primary card-header-text">
                                 <div class="card-text">
-                                    <h4 class="card-title"> Создать зал</h4>
+                                    <h4 class="time_text"> Создать зал</h4>
                                 </div>
                             </div>
                             {{-- --------form-------------- --}}
@@ -30,7 +30,7 @@
                                             {{-- ------------------form group for upload_img----------------------- --}}
                                             <div class="form-group bmd-form-group has-danger">
                                                 <label class=" d-flex align-items-center " for="imageUpload">
-                                                    <span> Изображения макета</span>
+                                                    <span class="time_text"> Изображения макета</span>
                                                 </label>
 
                                                 <div class="input-group">
@@ -48,12 +48,12 @@
                                             <div class="d-flex">
                                                 {{-- ---------table x--------------------- --}}
                                                 <div class="form-group mr-3 bmd-form-group ">
-                                                    <label class=" bmd-label-floating ">Ширина на метрах</label>
+                                                    <label class=" bmd-label-floating time_text">Ширина на метрах</label>
                                                     <input class="form-control width xy" type="number" name="table_x" required="true" aria-required="true" aria-invalid="true">
                                                 </div>
                                                 {{-- ------------table y---------------------- --}}
                                                 <div class="form-group mr-3 bmd-form-group ">
-                                                    <label class="bmd-label-floating ">Длина на метрах</label>
+                                                    <label class="bmd-label-floating time_text">Длина на метрах</label>
                                                     <input class="form-control height xy" type="number" name="table_y" required="true" aria-required="true" aria-invalid="true">
                                                 </div>
                                                 <div>
@@ -77,7 +77,7 @@
                                             </div>
                                             {{-- -----------Hall name---------------- --}}
                                             <div class="form-group mr-3 bmd-form-group mt-5">
-                                                <label class=" bmd-label-floating">Название зала</label>
+                                                <label class=" bmd-label-floating time_text">Название зала</label>
                                                 <input class="form-control hall-name" type="text" name="hall_name" required="true" aria-required="true" aria-invalid="true">
                                             </div>
                                         </div>
@@ -86,7 +86,7 @@
                                         <div class="col-sm-12">
                                             {{-- ------------description----------------------- --}}
                                             <div class="form-group mr-3 bmd-form-group mt-5">
-                                                <label class=" bmd-label-floating">Описание</label>
+                                                <label class=" bmd-label-floating time_text">Описание</label>
                                                 <textarea class="form-control desc"  name="description" required="true" aria-required="true" aria-invalid="true"></textarea>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                     <input type="hidden" name="hidden_url" data-name="create-floor-plan" value="{{route('createFloorPlanData',request()->route('id'))}}" id="hidden-url">
 
                                     {{-- <button type="submit" class="btn btn-rose">Create11<div class="ripple-container"></div></button> --}}
-                                    <input type="submit" name="" value="Создать зал" class=" btn btn-primary">
+                                    <input type="submit" name="" value="Создать зал" class=" btn btn-primary btn1">
 
                                 </div>
                             </form>

@@ -1,31 +1,43 @@
 @extends('adminlte::page')
 
 @section('title', 'Create Floor Plane')
-
+@section('css')
+   
+    <link href="{{ asset('assets/css/edit/edit.css') }}" rel="stylesheet">
+   
+@endsection
 @section('content')
-    <a type="button" class="btn btn-block btn-primary" href="{{route('addFloorPlan',request()->route('id') ?? null)}}">
-        Создать зал
-    </a>
-    <br>
-
-    @if(isset($data))
-        @foreach($data as $dat)
-            <div class="card">
-
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {{$dat['hall_name'] ?? null}}
-                    </h5>
-                    <p class="card-text">
-                        {{$dat['description'] ?? null}}
-                    </p>
-                    <a href="{{route('editFloorPlan',$dat['id'])}}" class="btn btn-primary">
-                        Редактировать
-                    </a>
-                </div>
+<div class="container">
+       
+            <br>
+            <div class="button">
+                <a 
+                    type="button" 
+                    class="btn" 
+                    href="{{route('addFloorPlan',request()->route('id') ?? null)}}">
+                    <button class="btn1" >Создать зал</button>
+                </a>
             </div>
-        @endforeach
-    @endif
-
-
+            <br>
+            @if(isset($data))
+                @foreach($data as $dat)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="time_text">
+                                {{$dat['hall_name'] ?? null}}
+                            </h5>
+                            <p class="time_text">
+                                {{$dat['description'] ?? null}}
+                            </p>
+                            <a 
+                                href="{{route('editFloorPlan',$dat['id'])}}">
+                                <button class="btn1" >Редактировать</button>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+   
+    <br>
+</div>
 @endsection
