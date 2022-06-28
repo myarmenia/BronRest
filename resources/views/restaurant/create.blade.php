@@ -4,12 +4,12 @@
 @section('css')
     <link href="{{ asset('assets/css/uploade-file.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/rest/style.css') }}">
+
 @endsection
 @section('content')
-
-
     <div class="card">
-        <div class="card-body login-card-body">
+        <div class="card-body login-card-body k_login_card_body">
             <p class="login-box-msg">
                 Создать  {{request()->route('id') ? '' : 'Главный'}} ресторан
             </p>
@@ -18,7 +18,7 @@
 
                 <div class="form-group mb-3">
                     <label >Имя</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Имя" name="name" value="{{ old('name') }}">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror k_form_control" placeholder="Имя" name="name" value="{{ old('name') }}">
 
                     {{-- <div class="input-group-append">
                         <div class="input-group-text">
@@ -34,7 +34,7 @@
 
                 <div class="form-group mb-3">
                     <label >Номер телефона</label>
-                    <input type="number" class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }}" placeholder="Номер телефона" name="phone_number" value="{{ old('phone_number') }}">
+                    <input type="number" class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }} k_form_control" placeholder="Номер телефона" name="phone_number" value="{{ old('phone_number') }}">
                     {{-- <div class="input-group-append">
                         <div class="input-group-text">
                         </div>
@@ -49,7 +49,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Описание</label>
-                        <textarea class="form-control {{ $errors->has('desc') ? 'is-invalid' : '' }}" rows="3" placeholder="Описание ..." name="desc">
+                        <textarea class="form-control {{ $errors->has('desc') ? 'is-invalid' : '' }} k_form_control k_text_area" rows="3" placeholder="Описание ..." name="desc">
                             {{ old('desc') ? old('desc') : '' }}
                         </textarea>
                         @if ($errors->has('desc'))
@@ -64,10 +64,10 @@
                 @if(!request()->route('id'))
                     <div class="form-group">
                         <label for="exampleInputFile">Выберите логотип ресторана</label>
-                            <div class="input-group">
+                            <div class="input-group k_input_group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="exampleInputFile" name="logo">
-                                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                                    <label class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
                                 </div>
                                 <div class="input-group-append">
                                     <span class="input-group-text">Загрузить</span>
@@ -113,7 +113,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input uploade-file" id="exampleInputFile" name="images[]" multiple>
-                                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                                    <label class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
                                 </div>
                                 <div class="input-group-append">
                                     <span class="input-group-text">Загрузить</span>
@@ -127,10 +127,18 @@
                 @endif
 
                 <div class="cont-uploaded-images"></div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Создать</button>
+                <!-- <div id="classRight" class="classRight">
+                    <div class="row">
+                        <div class="col-12 k_btn_lime">
+                            <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="test">
+                    <div class="test2">
+                        <div class="col-12 test3">
+                            <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -164,7 +172,11 @@
     <script type="text/javascript" src="{{asset('js/yandex_map.js')}}"> 
     </script>
     <script>
-        start()    
+        start()  
+        document.getElementById('classRight').style.display = 'flex';
+        document.getElementById("classRight").style.justifyContent = "center";
+
+
     </script>
 @endif
 @endsection
