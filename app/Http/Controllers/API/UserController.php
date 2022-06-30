@@ -40,7 +40,13 @@ class UserController extends Controller
 
         if($response->ok())
         {
-            return $response->json();
+            $data = $response->object();
+            $user = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $data->access_token,
+            ])->get(url('/api/user'));
+            $data->user = $user->object();
+
+            return response()->json($data,200);
         }
 
         return response()->json(['message'=>'Invalid email or password'],422);
