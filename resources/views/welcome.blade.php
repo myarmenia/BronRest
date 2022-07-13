@@ -61,7 +61,7 @@
             <p class="hed_text">magna sem, lacinia blandit ultricies </p>
 
                 <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
-                <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_play.png'])}}"></a>
+                <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
                 
             </div>
         </div>
@@ -70,7 +70,7 @@
             <p class="hed_text">magna sem, lacinia blandit ultricies </p>
                  <div class="stor_play">
                     <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
-                    <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_play.png'])}}"></a>
+                    <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
                  </div>
                
                 
