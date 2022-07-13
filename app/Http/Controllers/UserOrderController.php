@@ -43,6 +43,7 @@ class UserOrderController extends Controller
     {
         $validated = $request->validated();
 
+
         $order = Order::find($id);
         $order->status = $request['cause'];
         $order->save();
@@ -54,7 +55,7 @@ class UserOrderController extends Controller
             $message = new MessageService();
             $message->sendSMS($user->phone_number,$request['cause']);
         }
-        
+
         return redirect()->back();
     }
 }
