@@ -19,7 +19,22 @@ class UserOrderController extends Controller
 
     public function index()
     {
-        return view('user_orders.index',['orders' => Auth::user()->userOrders]);
+        //return view('user_orders.index',['orders' => Auth::user()->userOrders]);
+
+        $causes = OrderCause::get();
+        $orders = Auth::user()->userOrders()->with(
+        [
+            'floors' => function($q)
+            {
+                return $q->withPivot(["floor_plane_x as x","floor_plane_y as y"]);
+            },
+            'menus' => function($q)
+            {
+                return $q->withPivot(["count as count","comment as comment"]);
+            }
+        ])->paginate(2);
+
+        return view('user_orders.index',['orders' => $orders,'causes' => $causes]);
     }
 
     public function show($id)
@@ -42,7 +57,6 @@ class UserOrderController extends Controller
     public function store(OrderCauseReq $request,$id)
     {
         $validated = $request->validated();
-
 
         $order = Order::find($id);
         $order->status = $request['cause'];

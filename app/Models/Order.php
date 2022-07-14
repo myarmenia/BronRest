@@ -40,6 +40,6 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->select('email');
+        return $this->belongsTo(User::class)->select('email','name','phone_number');
     }
 }
