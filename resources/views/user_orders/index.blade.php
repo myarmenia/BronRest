@@ -58,7 +58,7 @@
 
             <div class="content_box">
                 <div class="content_clos">
-                    <img src="images/Group-1264.png">
+                    <img src="{{ asset('assets/images/Group-1264.png') }}">
                 </div>
                 <div class="content_item">
                     <div class="content_room_booking">
