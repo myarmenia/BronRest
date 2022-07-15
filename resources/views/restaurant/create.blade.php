@@ -79,9 +79,9 @@
 
                 @if(request()->route('id'))
                 <div class="row form-group">
-                    <input type="text" name="latit" class="latit_inp"  hidden>
+                    <input type="text" name="latit" class="latit_inp"  hidden required>
                     <input type="text" name="address" class="address_inp"  hidden>
-                    <input type="text" name="longit" class="longit_inp"  hidden>
+                    <input type="text" name="longit" class="longit_inp"  hidden required>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="form-check-label">Категории кухонь</label>
@@ -169,10 +169,10 @@
     }
 });
     </script>
-    <script type="text/javascript" src="{{asset('js/yandex_map.js')}}"> 
+    <script type="text/javascript" src="{{asset('js/yandex_map.js')}}">
     </script>
     <script>
-        start()  
+        start()
         document.getElementById('classRight').style.display = 'flex';
         document.getElementById("classRight").style.justifyContent = "center";
 
