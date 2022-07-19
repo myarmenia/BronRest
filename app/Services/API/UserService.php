@@ -24,7 +24,7 @@ class UserService
     $user = Auth::user();
     $updated = $user->update(Arr::except($data, ['avatar']));
 
-    if($data['avatar'])
+    if(isset($data['avatar']))
     {
             if($user['avatar']){
                 $this->fileServ->delete($user['avatar']);
