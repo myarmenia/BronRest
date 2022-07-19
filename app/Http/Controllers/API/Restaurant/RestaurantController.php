@@ -11,7 +11,7 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-       $data = Restaurant::with('parent','kitchen_categories')->where('parent_id','!=',NULL);
+       $data = Restaurant::with('parent','kitchen_categories','images')->where('parent_id','!=',NULL);
         if($request['q']){
             $data = $data->where(function ($query) use ($request){
                 $query->where('name','LIKE','%'.$request['q'].'%')
