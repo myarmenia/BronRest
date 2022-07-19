@@ -29,6 +29,7 @@ class UserService
             if($user['avatar']){
                 $this->fileServ->delete($user['avatar']);
             }
+
             $img = $this->fileServ->createImage($user['id'],$data['avatar']);
             $user['avatar'] = $img;
             $user->save();
