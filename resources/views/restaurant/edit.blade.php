@@ -17,7 +17,7 @@
 
 <div class="container">
    
-    <div class="card ">
+    <div class=" ">
         @if($data->parent)
             <div class="row pp">
                
@@ -35,159 +35,165 @@
                 </div>
             </div>
         @endif
-        <div class="">
-            <div class="">
-
-                    {{ session('status') ? 'Данни ресторана успешно изменено' :
-                   (session('store') ? 'Ресторан успешно создан' : '')}}
-            </div>
-            </div>
-    </div>
-    <div class="hh">
-    <form action="{{route('editRestaurantData',request()->route('id'))}}" method="post" enctype="multipart/form-data" name="some2">
-        @csrf
-        @method('put')
-        @if(isset($data->parent->mainImage))
-                <div class="time_img">
-                    <p class="time_text">Логотип ресторана</p>
-                    <div class="time_photo">
-                    <img src="{{route('getFile',['path' => $data->parent->mainImage['path'] ?: null])}}" alt="Photo" >
-                    </div>
-
-                </div>
-        @endif
-        @if(isset($data->parent))
+            <br>
             <div class="content_box">
-                <p class="time_text">Главная названия ресторана</p>
-                <input type="text" value="{{$data->parent['name'] ?? null}}" disabled>
-            </div>
-        @endif
-        <br>
-        <div class="content_box">
-            <p class="time_text">Название заведения</p>
-            <input type="text" class="@error('name') is-invalid @enderror"  placeholder="Название заведения" value="{{$data['name'] ?? null}}" name="name">
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="content_box">
-        <p class="time_text">Номер телефона</p>
-            <input type="number" class="{{ $errors->has('phone_number') ? 'is-invalid' : '' }}"  placeholder="Номер телефона" value="{{$data['phone_number'] ?? null}}" name="phone_number">
-            @if ($errors->has('phone_number'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('phone_number') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="content_box">
-            <p class="time_text">Описание заведения</p>
-            <textarea class="textarea {{ $errors->has('desc') ? 'is-invalid' : '' }}" rows="3" placeholder="Описание заведения" name="desc">
-                 {{$data['desc'] ?? null}}
-            </textarea>
-            @if ($errors->has('desc'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('desc') }}</strong>
-                </span>
-            @endif       
-        </div>
-        @if(isset($data->parent))
-            <div class="row">
-                @foreach($days as $num => $day)
-                <div class="time_work">
-                    <div class="time">
-                    
-                        <p class="time_text">{{$day->day}}</p>
-                        <input type="time" class=" work-days-start" name="{{$day->id . '_start'}}"
-                        value="{{$data->days[$num]['start'] ?? null}}">
-                        <br>
-                        <input type="time" class=" work-days-end" name="{{$day->id . '_end'}}"
-                        value="{{$data->days[$num]['end'] ?? null}}">
-                    
-                    </div>
-                </div>
-                <pre></pre>
-                @endforeach
-            </div>
-        @endif
-        <br>
-        @if(isset($data->images))
-            <div class="row mt-3">
-                @foreach($data->images as $num => $dat)
-            
-                                <div class="col-3 i-cont bag_img">
-                                    <div class="image_container d-flex">
 
-                                        <img class="img-responsive images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo" width="100%">
-                                        <div class="top-right">
-                                            <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
+            <p class="time_text" style="color:green"> {{ session('status') ? 'Данни ресторана успешно изменено' :
+                   (session('store') ? 'Ресторан успешно создан' : '')}}</p>
+            </div>
+            
+    </div>
+
+
+    <!-- ///////////////////////////////restaurant/edit/1///////////////////////////////////// -->
+
+
+    <div class="hh">
+        <form action="{{route('editRestaurantData',request()->route('id'))}}" method="post" enctype="multipart/form-data" name="some2">
+            @csrf
+            @method('put')
+            @if(isset($data->parent->mainImage))
+                    <div class="time_img">
+                        <p class="time_text">Логотип ресторана</p>
+                        <div class="time_photo">
+                        <img src="{{route('getFile',['path' => $data->parent->mainImage['path'] ?: null])}}" alt="Photo" >
+                        </div>
+
+                    </div>
+            @endif
+            @if(isset($data->parent))
+                <div class="content_box">
+                    <p class="time_text">Главная названия ресторана</p>
+                    <input type="text" value="{{$data->parent['name'] ?? null}}" disabled>
+                </div>
+            @endif
+            <br>
+            <div class="content_box" >
+                <p class="time_text">Название заведения</p>
+                <input type="text" class="@error('name') is-invalid @enderror"  placeholder="Название заведения" value="{{$data['name'] ?? null}}" name="name">
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="content_box">
+            <p class="time_text">Номер телефона</p>
+                <input type="number" class="{{ $errors->has('phone_number') ? 'is-invalid' : '' }}"  placeholder="Номер телефона" value="{{$data['phone_number'] ?? null}}" name="phone_number">
+                @if ($errors->has('phone_number'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('phone_number') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="content_box">
+                <p class="time_text">Описание заведения</p>
+                <textarea class="textarea {{ $errors->has('desc') ? 'is-invalid' : '' }}" rows="3" placeholder="Описание заведения" name="desc">
+                    {{$data['desc'] ?? null}}
+                </textarea>
+                @if ($errors->has('desc'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('desc') }}</strong>
+                    </span>
+                @endif       
+            </div>
+            @if(isset($data->parent))
+                <div class="row">
+                    @foreach($days as $num => $day)
+                    <div class="time_work">
+                        <div class="time">
+                        
+                            <p class="time_text">{{$day->day}}</p>
+                            <input type="time" class=" work-days-start" name="{{$day->id . '_start'}}"
+                            value="{{$data->days[$num]['start'] ?? null}}">
+                            <br>
+                            <input type="time" class=" work-days-end" name="{{$day->id . '_end'}}"
+                            value="{{$data->days[$num]['end'] ?? null}}">
+                        
+                        </div>
+                    </div>
+                    <pre></pre>
+                    @endforeach
+                </div>
+            @endif
+            <br>
+            @if(isset($data->images))
+                <div class="row mt-3 img_row">
+                    @foreach($data->images as $num => $dat)
+                
+                                    <div class="col-3 i-cont bag_img">
+                                        <div class="image_container d-flex">
+
+                                            <img class="img-responsive images" src="{{route('getFile',['path' => $dat['path'] ?: null])}}" alt="Photo" width="100%">
+                                            <div class="top-right">
+                                                <button class="btn" type="button" onclick="deleted('{{$num}}','{{$dat['path']}}')">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
+                                    </div>
+                    @endforeach
+                </div>
+            @endif
+            @if(!isset($data->parent))
+                <div class="form-group">
+                    <p class="time_text" for="exampleInputFile">Выберите логотип ресторана</p>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="logo">
+                                <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                            </div>
+                        </div>
+                </div>
+                <div class="cont-uploaded-images d-flex"></div>
+            @endif
+
+                    @if(isset($data->parent))
+                        <input type="text" name="latit" class="latit_inp"  hidden>
+                        <input type="text" name="address" class="address_inp"  hidden>
+                        <input type="text" name="longit" class="longit_inp"  hidden>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                            <p class="time_text">Категории кухонь </p>
+                                    @foreach($kitchenCategories as $dat)
+                                        <div class="form-check">
+                                            <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]"
+                                                @if ($data->kitchen_categories->contains($dat['id']))
+                                                    checked
+                                                @endif>
+                                                <p class="time_text">{{ $dat['name'] }}</p>
+                                        </div>
+                                    @endforeach
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                        <p class="time_text">Выберите изображения</p>
+                            <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
+                                        <div class="amount">
+                                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                                         </div>
                                     </div>
-                                    <input class="delete_image{{$num}}" type="text" hidden name="delete_image[]">
-                                </div>
-                @endforeach
-            </div>
-        @endif
-        @if(!isset($data->parent))
-            <div class="form-group">
-                <p class="time_text" for="exampleInputFile">Выберите логотип ресторана</p>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile" name="logo">
-                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                                
+                            </div>
+                            <div class="cont-uploaded-images d-flex"></div>
+                            <br>
+                            <div class="col">
+                                <div id="map" style="width: 100%; height: 400px"></div>
+                            </div>
+                        </div>
+                    @endif
+                
+                    <div class="row center_button">
+                        <div class="button">
+                            <button type="submit" class="btn btn1">Сохранить</button>
                         </div>
                     </div>
-            </div>
-            <div class="cont-uploaded-images d-flex"></div>
-        @endif
-
-                @if(isset($data->parent))
-                    <input type="text" name="latit" class="latit_inp"  hidden>
-                    <input type="text" name="address" class="address_inp"  hidden>
-                    <input type="text" name="longit" class="longit_inp"  hidden>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                        <p class="time_text">Категории кухонь </p>
-                                @foreach($kitchenCategories as $dat)
-                                    <div class="form-check">
-                                        <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $dat['id'] }}]"
-                                            @if ($data->kitchen_categories->contains($dat['id']))
-                                                checked
-                                            @endif>
-                                            <p class="time_text">{{ $dat['name'] }}</p>
-                                    </div>
-                                @endforeach
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                    <p class="time_text">Выберите изображения</p>
-                        <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple>
-                                    <div class="amount">
-                                        <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
-                                    </div>
-                                </div>
-                               
-                        </div>
-                        <div class="cont-uploaded-images d-flex"></div>
-                        <br>
-                        <div class="col">
-                            <div id="map" style="width: 100%; height: 400px"></div>
-                        </div>
-                    </div>
-                @endif
-               
-                <div class="row">
-                    <div class="button">
-                        <button type="submit" class="btn btn1">Сохранить</button>
-                    </div>
-                </div>
-    </form>
+        </form>
     </div>
+
 </div>
 <!-- -------------------------------------------------->
    
