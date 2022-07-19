@@ -19,7 +19,22 @@ class UserOrderController extends Controller
 
     public function index()
     {
-        return view('user_orders.index',['orders' => Auth::user()->userOrders]);
+        //return view('user_orders.index',['orders' => Auth::user()->userOrders]);
+
+        $causes = OrderCause::get();
+        $orders = Auth::user()->userOrders()->with(
+        [
+            'floors' => function($q)
+            {
+                return $q->withPivot(["floor_plane_x as x","floor_plane_y as y"]);
+            },
+            'menus' => function($q)
+            {
+                return $q->withPivot(["count as count","comment as comment"]);
+            }
+        ])->paginate(2);
+
+        return view('user_orders.index',['orders' => $orders,'causes' => $causes]);
     }
 
     public function show($id)
@@ -54,7 +69,7 @@ class UserOrderController extends Controller
             $message = new MessageService();
             $message->sendSMS($user->phone_number,$request['cause']);
         }
-        
+
         return redirect()->back();
     }
 }

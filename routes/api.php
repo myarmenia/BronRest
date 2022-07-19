@@ -21,7 +21,7 @@ use App\Http\Controllers\FeedbackController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -47,6 +47,12 @@ Route::group(["prefix" => "restaurant"],function(){
 });
 
 Route::group(["middleware" => ["auth:api"]],function(){
+
+
+    Route::group(["prefix" => "phone","middleware" => ["has_phone"]],function(){
+        Route::get('reg',[UserController::class ,'registerPhone']);
+        Route::post('check',[UserController::class ,'checkPhone']);
+    });
     Route::group(["prefix" => "order"],function(){
         Route::get('/',[OrderController::class ,'index']);
         Route::post('/store',[OrderController::class ,'store']);
