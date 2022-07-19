@@ -4,7 +4,7 @@
 @section('css')
     <link href="{{ asset('assets/css/uploade-file.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/rest/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/rest/style1.css') }}">
 
 @endsection
 @section('content')
@@ -70,7 +70,7 @@
                                     <label class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
                                 </div>
                                 <div class="input-group-append">
-                                    <span class="input-group-text">Загрузить</span>
+                                    <span class="input-group-text k_input-group-text">Загрузить</span>
                                 </div>
                             </div>
                     </div>
@@ -88,7 +88,7 @@
                             @foreach($kitchenCategories as $data)
                                 <div class="form-check">
                                     <input class="form-check-input checkbox_fuc" type="checkbox" name="kitchen_cats[{{ $data['id'] }}]">
-                                    <label class="form-check-label">{{ $data['name'] }}</label>
+                                    <label  class="form-check-label">{{ $data['name'] }}</label>
                                 </div>
                             @endforeach
                         </div>
@@ -111,9 +111,10 @@
                     <div class="form-group card-body">
                         <label for="exampleInputFile">Выберите изображения</label>
                             <div class="input-group">
+                                <h1 id="kkk">55</h1>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input uploade-file" id="exampleInputFile" name="images[]" multiple>
-                                    <label class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
+                                    <label  class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
                                 </div>
                                 <div class="input-group-append">
                                     <span class="input-group-text">Загрузить</span>
@@ -124,8 +125,15 @@
                     <div class="col">
                         <div id="map" style="width: 100%; height: 400px"></div>
                     </div>
-                @endif
-
+                    @endif
+                               
+                <div class="test">
+                    <div class="test2">
+                        <div class="col-12 test3">
+                            <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="cont-uploaded-images"></div>
                 <!-- <div id="classRight" class="classRight">
                     <div class="row">
@@ -134,13 +142,6 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="test">
-                    <div class="test2">
-                        <div class="col-12 test3">
-                            <button type="submit" class="btn btn-primary btn-block k_lime">Создать</button>
-                        </div>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
@@ -176,7 +177,12 @@
         document.getElementById('classRight').style.display = 'flex';
         document.getElementById("classRight").style.justifyContent = "center";
 
-
+        
+       
     </script>
 @endif
+<script>
+     
+        console.log(document.getElementById('kkk'));
+</script>
 @endsection

@@ -48,6 +48,9 @@ Route::group(["prefix" => "restaurant"],function(){
 
 Route::group(["middleware" => ["auth:api"]],function(){
 
+    Route::group(["prefix" => "user"],function(){
+        Route::post('/update',[UserController::class ,'update']);
+    });
 
     Route::group(["prefix" => "phone","middleware" => ["has_phone"]],function(){
         Route::get('reg',[UserController::class ,'registerPhone']);

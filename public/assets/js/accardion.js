@@ -15,7 +15,10 @@ accordionTitles.forEach((accordionTitle) => {
     accordionTitle.addEventListener("click", () => {
         const height = accordionTitle.nextElementSibling.scrollHeight;
         // console.log(accordionTitle.parentNode.querySelectorAll('.accordion_answer'));
+        // console.log(accordionTitle.children[1]);
         accordionTitle.classList.toggle("active_header")
+        accordionTitle.children[1].classList.toggle('rotated');
+
         accordionTitle.parentNode.querySelectorAll('.accordion_answer').forEach((e)=> {
             if (accordionTitle.classList.contains("active_header")) {
                 e.style.maxHeight = `${height}px`;
