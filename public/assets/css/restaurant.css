@@ -13,7 +13,13 @@
 .bag_img{
     display: flex;
     flex-direction: row;
-    max-width: 13%;
+    max-width: 30%;
+    height: 60px;
+}
+
+.hh{
+    width: 70%;
+    margin: 0 auto;
 }
 
 @media (max-width: 425px) {
@@ -21,6 +27,11 @@
     {
        width: 100%;
     }
+    
+    .hh{
+        width: 90%;
+    }
+
 }
 
 
@@ -199,6 +210,8 @@ a {
 
 .section {
     padding: 50px 0;
+    margin: 0 auto;
+    width: 70%;
 }
 
 .name {
@@ -227,6 +240,10 @@ a {
 .name_item p {
     font-size: 16px;
     margin-bottom: 15px;
+}
+
+.name_item{
+    width: 70%;
 }
 
 .geolocation {
@@ -310,4 +327,15 @@ a {
 
 .amount span {
     color: #5F6368;
+}
+
+@media (min-width: 325px) and (max-width: 750px){
+    .section{
+        width: 100%;
+        padding: 50px;
+    }
+
+    .name_item{
+        width: 100%;
+    }
 }

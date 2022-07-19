@@ -108,7 +108,7 @@
                         <h1>Основные блюда</h1>
                         <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
                     </div>
-                    <div class="deg">
+                     <div class="deg"><!-- dont change position div class="deg" -->
                         <img src="{{ asset('assets/images/Vector-65.png') }}">
                     </div>
                 </div>
@@ -386,6 +386,6 @@
     </script>
     <script>
      
-        
+        //karine
     </script>
 @endsection

@@ -12,9 +12,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Services\MessageService;
+use App\Services\API\UserService;
 
 class UserController extends Controller
 {
+
+    private $userServ;
+
+    public function __construct()
+    {
+        $this->userServ = new UserService;
+    }
+
+
     public function getPass(Request $request)
     {
 
@@ -133,6 +143,31 @@ class UserController extends Controller
             'phone_number' => $request->phone_number
             ], 422);
     }
+
+    public function update(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'nullable|email',
+            'name' => 'nullable|string',
+            'age' => 'nullable|integer',
+            'gender' => 'nullable|in:male,female,other',
+            'phone_number' => 'nullable|integer',
+            'avatar' => 'nullable|image'
+        ]);
+
+        if ($validator->fails() || !count($request->all())) {
+            return response()->json($validator->errors(), 422);
+        }
+
+
+        $this->userServ->update($request->all());
+
+        return response()->json([
+            'message' => 'Success'
+        ], 200);
+    }
+
 
 
 }

@@ -374,7 +374,10 @@ svg {
     line-height: 18.75px;
     margin-bottom: 31px;
 }
-
+.rotated{
+    transform: rotate(180deg);
+    
+}
 .btn {
     border: none;
     background-color: transparent;
