@@ -24,11 +24,12 @@ class UserService
     $user = Auth::user();
     $updated = $user->update(Arr::except($data, ['avatar']));
 
-    if($data['avatar'])
+    if(isset($data['avatar']))
     {
             if($user['avatar']){
                 $this->fileServ->delete($user['avatar']);
             }
+
             $img = $this->fileServ->createImage($user['id'],$data['avatar']);
             $user['avatar'] = $img;
             $user->save();
