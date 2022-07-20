@@ -23,7 +23,6 @@ class MenuController extends Controller
             'data' => $data,
             'status' => 200
        ]);
-
         return view('restaurant.menu.index',compact('data'));
     }
 
