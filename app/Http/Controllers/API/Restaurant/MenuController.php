@@ -12,17 +12,18 @@ class MenuController extends Controller
 {
     public function index(Request $request,$id)
     {
+
         $data = Menu::where('restaurant_id',$id);
         if($request['category']){
             $data = $data->where('category_id',$request['category']);
         }
         $data = $data->get();
 
-    //     return response()->json([
-    //         'data' => $data,
-    //         'status' => 200
-    //    ]);
-    
+        return response()->json([
+            'data' => $data,
+            'status' => 200
+       ]);
+
         return view('restaurant.menu.index',compact('data'));
     }
 
