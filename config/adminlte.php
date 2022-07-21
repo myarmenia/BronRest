@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Tap Table',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -48,8 +48,8 @@ return [
     |
     */
 
-    'logo' => '<b>Bronerest</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Tap Table</b>',
+    'logo_img' => '/assets/images/main_logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -124,15 +124,15 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'bg-dark',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
-    'classes_content_header' => '',
-    'classes_content' => '',
+    'classes_content_wrapper' => 'bg-dark',
+    'classes_content_header' => 'bg-dark',
+    'classes_content' => 'bg-dark',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
