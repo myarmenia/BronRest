@@ -111,7 +111,6 @@
                     <div class="form-group card-body">
                         <label for="exampleInputFile">Выберите изображения</label>
                             <div class="input-group">
-                                <h1 id="kkk">55</h1>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input uploade-file" id="exampleInputFile" name="images[]" multiple>
                                     <label  class="custom-file-label k_custom_file_label" for="exampleInputFile">Выберите файл</label>
@@ -126,7 +125,7 @@
                         <div id="map" style="width: 100%; height: 400px"></div>
                     </div>
                     @endif
-                               
+
                 <div class="test">
                     <div class="test2">
                         <div class="col-12 test3">
@@ -177,12 +176,12 @@
         document.getElementById('classRight').style.display = 'flex';
         document.getElementById("classRight").style.justifyContent = "center";
 
-        
-       
+
+
     </script>
 @endif
 <script>
-     
-        console.log(document.getElementById('kkk'));
+
+        
 </script>
 @endsection
