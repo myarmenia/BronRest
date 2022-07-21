@@ -23,7 +23,7 @@ return [
     'Roles And Permissions'         => 'Роли и разрешения',
     'roles'                         => 'Роли',
     'permissions'                   => 'Разрешения',
-    'Restaurants'                   => 'Рестораны',
+    'Restaurants'                   => 'Регистрация ресторана',
     'Kitchen Categories'            => 'Категории кухонь',
     'Feedback'                      => 'Обратная связь',
     'Orders'                        => 'Заказы',
