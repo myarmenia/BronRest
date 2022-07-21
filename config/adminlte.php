@@ -389,6 +389,11 @@ return [
             'route' => 'userOrders',
             'can' => 'restaurant'
         ],
+        [
+            'text' => 'История бронирования',
+            'route' => 'userOrderHistory',
+            'can' => 'restaurant'
+        ],
 
     ],
 
