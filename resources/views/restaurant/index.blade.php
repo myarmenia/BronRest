@@ -66,19 +66,19 @@
 <!-- /////////////////////////////////////////////////// -->
 
    <div class="container">
+    <a href="{{route('createMainRestaurantPage',request()->route('id') ?? null)}}">
+        <div class="amount">
+            <div class="circle">+</div>
+            <span> {{request()->route('id') ? '' : 'Добавить филиал'}}</span>
+            {{-- Добавьте основные данные для --}}
+        </div>
+        </a>
    @if(isset($data))
    @foreach($data as $key => $dat)
         <div class="section">
-        <a href="{{route('createMainRestaurantPage',request()->route('id') ?? null)}}">
-            <div class="amount">
-                <div class="circle">+</div>
-                <span> {{request()->route('id') ? '' : 'Добавить филиал'}}</span>
-                {{-- Добавьте основные данные для --}}
-            </div>
-            </a>
             <div class="name">
                 <h2 class="name_title">{{$dat['name'] ?? null}}</h2>
-              
+
             </div>
             <!-- <p class="responsible"><a href="#"> Ответственное лицо</a></p> -->
             <div class="name_item">
@@ -119,11 +119,11 @@
             <div class="">
                     @if(!request()->route('id'))
                         <a href="{{route('getRestaurant',$dat['id'])}}">
-                            <img src="{{ asset('assets/images/Group_1134.png') }}" alt="pan"> Показывать 
+                            <img src="{{ asset('assets/images/Group_1134.png') }}" alt="pan"> Показывать
                         </a>
                     @endif
                    <br>
-                   
+
                     <a href="{{route('editRestaurant',$dat['id'])}}">
                         <img src="{{ asset('assets/images/Group_1134.png') }}" alt="pan">Редактировать
                         @if(request()->route('id'))

@@ -65,3 +65,6 @@ class MenuController extends Controller
        ]);
     }
 }
+
+Хирург-имплантолог
+Кандидат Медицинских Наук
