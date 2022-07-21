@@ -36,7 +36,7 @@
                                                 <div class="input-group">
                                                     {{-- <div class="custom-file"> --}}
                                                         {{-- <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"> --}}
-                                                        <input class="form-control img" id="imageUpload" type="file" name="img" required="true"  >
+                                                        <input class="form-control img" id="imageUpload" type="file" name="img"  >
                                                         <label class="custom-file-label" for="imageUpload">Выберите файл</label>
                                                     {{-- </div> --}}
                                                     {{-- <div class="input-group-append">
