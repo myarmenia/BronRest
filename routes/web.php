@@ -88,7 +88,17 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('/show/{id}',[UserOrderController::class,'show'])->name('userShow');
             Route::post('/store/{id}',[UserOrderController::class,'store'])->name('userOrderStore');
             Route::group(['prefix' => 'history'], function(){
-                Route::get('/',[UserOrderHistoryController::class,'index'])->name('userOrderHistory');
+                Route::get('/',[UserOrderHistoryController::class,'restaurants'])->name('userRestaurantOrderHistory');
+                Route::get('/tables',[UserOrderHistoryController::class,'tables'])->name('userOrderHistory');
+                Route::group(['prefix' => 'order'], function(){
+                Route::get('single/{order}',[UserOrderHistoryController::class,'single'])->name('userOrderHistorySingle');
+                Route::post('single/{order}',[UserOrderHistoryController::class,'singleStore'])->name('userOrderHistorySingleStore');
+                Route::get('menu/{order}',[UserOrderHistoryController::class,'orderMenu'])->name('userOrderMenu');
+                Route::delete('menu/destoy/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuDestroy'])->name('userOrderMenuDestroy');
+                Route::post('menu/{order}',[UserOrderHistoryController::class,'orderMenuStore'])->name('orderMenuStore');
+                Route::get('menu/edit/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuEdit'])->name('userOrderMenuEdit');
+                Route::patch('menu/update/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuUpdate'])->name('userOrderMenuUpdate');
+            });
             });
         });
     });

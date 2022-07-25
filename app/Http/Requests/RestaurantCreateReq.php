@@ -26,7 +26,7 @@ class RestaurantCreateReq extends FormRequest
 
         return [
             'name' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|max:15',
             'desc' => 'required',
             'address' => 'nullable',
             'longit' => 'nullable',

@@ -391,7 +391,7 @@ return [
         ],
         [
             'text' => 'История бронирования',
-            'route' => 'userOrderHistory',
+            'route' => 'userRestaurantOrderHistory',
             'can' => 'restaurant'
         ],
 

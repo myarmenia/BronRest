@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Restaurant\FloorPlane;
 use App\Models\Restaurant\Menu;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -83,5 +84,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userOrders()
     {
         return $this->hasManyThrough(Order::class, Restaurant::class);
+    }
+
+    public function restaurants()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
+
+    public function floor_planes()
+    {
+        return $this->hasManyThrough(FloorPlane::class, Restaurant::class);
+
     }
 }
