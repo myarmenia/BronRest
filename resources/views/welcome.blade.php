@@ -9,209 +9,180 @@
     <title>Restaurants</title>
 </head>
 <body>
-
-    <!-- ---------------------- -->
-
-<div class="background">
-    <img src="{{route('getFile',['path' => 'public/main_images/banner.jpg'])}}"></div>
-
-        <header class="header">
-            <nav class="navbar">
-                <a href="#" class="nav_branding">Tap Table</a>
-                <ul class="nav_menu">
-                    <a href="#" class="nav_branding nav_branding2">Tap Table</a>
-                    @if(Auth::check())
-                    <li class="nav_item">
-                        <a href="{{route('home')}}" class="nav_link">Профиль</a>
-                    </li>
-                    @endif
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">О компании</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">Условия сотрудничества</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#" class="nav_link" onclick="openSliader()">Регистрация</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#" class="nav_link" onclick="openSliader2()">вход</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </header>
-        <!-- //////// -->
-        <div class="hed_text_box">
-            <h1 class="het_title">Lorem ipsum</h1>
-            <p class="hed_text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Nunc in convallis odio. Aliquam erat volutpat. Vivamus accumsan interdum
-                eros non dignissim. Vivamus magna sem, lacinia blandit  ultricies quis, sagittis in orci. Duis et pulvinar lectus,  ut tempus leo. Ut at dui lorem.Lorem ipsum dolor sit amet, consectetur
-            </p>
-            <br>
-            <br>
-            <br>
-
-
-            <div class="epp_google">
-            <p class="hed_text">magna sem, lacinia blandit ultricies </p>
-
-                <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
-                <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
-
-            </div>
+  <div class="bg_box">
+    <img src="{{ asset('assets/images/banner.jpg') }}"  class="bg">
+    <div class="header_nav">
+      <div class="header_logo">
+        <!-- <a href="">Transitive <span>by TEMPLATED</span></a> -->
+      </div>
+      <div class="nav_flex">
+        <ul>
+          <li><a href="" class="nav_link">О компании</a></li>
+          <li><a href="" class="nav_link">Условия сотрудничества</a></li>
+          <li><a href="/register" class="nav_link">Регистрация</a></li>
+        </ul>
+      </div>
+      <div class="navbar">
+        <div class="hamburger_menu">
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
         </div>
-
-        <div class="epp_google_2">
-            <p class="hed_text">magna sem, lacinia blandit ultricies </p>
-                 <div class="stor_play">
-                    <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/App_Store.png'])}}"></a>
-                    <a href="/"><img src="{{route('getFile',['path' => 'public/main_images/Google_Play.png'])}}"></a>
-                 </div>
-
-
-            </div>
-
-
-    <!-- ------------------------------------------------------------------------------------------ -->
-
-
-    <div class="about_company">
-        <h1 class="company_title">О компании</h1>
-        <p class="company_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. <br> Vivamus accumsan interdum eros non dignissim. Vivamus magna sem, lacinia blandit ultricies quis, <br> sagittis in orci. Duis et pulvinar lectus, ut tempus leo. Ut at dui lorem.Lorem ipsum dolor sit amet, consectetur </p>
-        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <ul class="nav_list">
+          <li class="nav_item">
+            <a href="/" class="nav_link  nav_link_02">Tap Table</a>
+          </li>
+          <li class="nav_item">
+            <a href="" class="nav_link">О компании</a>
+          </li>
+          <li class="nav_item">
+            <a href="" class="nav_link">Условия сотрудничества</a>
+          </li>
+          <li class="nav_item">
+            <a href="/register" class="nav_link">Регистрация</a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class="mobail mobail002">
+      <a href="https://itunes.apple.com/us/app/sutiawbapp/id1166499?ls=1&mt=8"> <img src="{{ asset('assets/images/store.png') }}"></a>
+       <a href="https://play.google.com/store/apps/details?id=..."><img src="{{ asset('assets/images/play.png') }}"></a>
+     </div>
 
 
-<!-- ----------------------------------------------------------------------------------------------- -->
+  </div>
 
-
-
-
-<!-- ----------------------------------------------------- -->
-<div class="div_flex">
-    <div class="came">
-        <img src="images/Mask group.jpg" >
+  <div class="multifunctional">
+    <div class="logo_box">
+      <div class="img_logo">
+        <img src="{{ asset('assets/images/logo002.png') }}" alt="">
+      </div>
+      <div class="hed_logo">
+        Tap-Table
+      </div>
     </div>
-    <div class="cooperation">
-        <div class="container">
-            <h1 class="company_title">Условия сотруднечества</h1>
-                <div class="cooperation_box_div">
-                    <div class="cooperation_box">
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                        <div class="cooperatio_text_box">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in convallis odio. Aliquam erat volutpat. </p>
-                        </div>
-                    </div>
-                </div>
-
-        </div>
+    <div class="logo_hed_text">
+      Многофункциональное приложение <br> для управления рестораном
     </div>
-</div>
+    <div class="logo_text">
+      Одно приложение для решения множества задач: от <br> организации бронирований до ведения статистики заведения.
+    </div>
+    <div class="mobail">
+     <a href="https://itunes.apple.com/us/app/sutiawbapp/id1166499?ls=1&mt=8"> <img src="{{ asset('assets/images/store.png') }}"></a>
+      <a href="https://play.google.com/store/apps/details?id=..."><img src="{{ asset('assets/images/play.png') }}"></a>
+    </div>
+  </div>
 
 
 
 
-<!-- ------------------------------------------------------------------------------------------------------------- -->
-<div class="footer">
+      <!-- -------------------------------------------------------------------------------------------------- -->
+  <section class="earn__box">
     <div class="container">
-        <div class="footer_box">
-            <div class="footer_itme">
-                <a href="#" class="nav_branding nav_branding_footer">Tap Table</a>
-                <p class="footer_text">Политика конфиденциальности</p>
-            </div>
-            <div class="footer_itme">
-                <p>Телефон</p>
-                <p> +374 96-10-10-17</p>
-            </div>
-            <div class="footer_itme">
-                <p> Адрес:</p>
-                <p>Yerevan, Mashtoc AveSarmen 1 str.</p>
-            </div>
-        </div>
+    <div class="earn">
+      <h1 class="earn_title">С TapTable легко зарабатывать больше</h1>
+      <div class="img_hed_box">
+        <img src="{{ asset('assets/images/Frame.png') }}">
+        <p>Вы больше не будете терять клиентов из-за пропущенных звонков и сообщений в соцсетях;</p>
+      </div>
+      <div class="img_hed_box">
+        <img src="{{ asset('assets/images/Frame.png') }}">
+        <p> с функцией “Свободный стол”  поток клиентов увеличится: заинтересованные клиенты получат уведомления об освободившихся местах; </p>
+      </div>
+      <div class="img_hed_box">
+        <img src="{{ asset('assets/images/Frame.png') }}">
+        <p>Tap-Table повышает возврат клиентов, формируя постоянных посетителей;</p>
+      </div>
+      <div class="img_hed_box">
+        <img src="{{ asset('assets/images/Frame.png') }}">
+        <p> приложение анализирует клиентов, цифровизируя их, что поможет снизить расходы на рекламу и создавать персональные предложения; </p>
+      </div>
+      <div class="img_hed_box">
+        <img src="{{ asset('assets/images/Frame.png') }}">
+        <p>функция предзаказа повышает трафик заведения: клиенты больше не ждут, приходя к уже готовому блюду․</p>
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
-
-<!-- --------------------------------------------------------------- -->
-<div class="display_none" id="slider">
-    <div class="registration" >
-        <div class="registration_box">
-            <div class="reg_close" onclick="closeSliader()">
-                <img src="{{route('getFile',['path' => 'public/main_images/close.png'])}}" >
-            </div>
-            <h1 class="reg_title">Регистрация</h1>
-            <form method="POST" action="{{route('register')}}">
-                @csrf
-            <div class="reg_input_box">
-                <div class="reg_input">
-                    <input type="text"  placeholder="Имя" class="input_itme" name="name" required>
-                    <input type="email" placeholder="Email" class="input_itme" name="email" required>
-                    <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
-                    <input type="password" placeholder="Подтвердить пароль" class="input_itme" name="password_confirmation" required>
-
-                    <div class="checkbox">
-                     <input type="checkbox"  />
-                     <label for="check">Запомнить</label>
-                    </div>
-
-                    <button class="itme_btn">Зарегистрироватся</button>
-
-
-                </div>
-            </div>
-            </form>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<section class="restaurants__box">
+  <div class="container">
+    <div class="restaurants">
+      <h1 class="earn_title">TapTable для ресторанов это</h1>
+      <div class="information">
+        <div class="max_box">
+          <img src="{{ asset('assets/images/icone01.png') }}" class="icone__img">
+          <h2 class="box_icone_title">Удобно</h2>
+          <p class="box_icone_text">
+            Простая схема управления бронированиями. Все детали заказа находятся в одном месте: от количества посетителей до комментариев к блюдам
+          </p>
         </div>
-
-     </div>
-</div>
-
-
-<!-- --------------------------------------- -->
-<div class="display_none" id="slider2">
-    <div class="registration" >
-        <div class="registration_box">
-            <div class="reg_close" onclick="closeSliader2()">
-                <img src="{{route('getFile',['path' => 'public/main_images/close.png'])}}" >
-            </div>
-            <h1 class="reg_title">вход</h1>
-        <form method="POST" action="{{route('login')}}">
-            @csrf
-            <div class="reg_input_box">
-                <div class="reg_input">
-                    <input type="email" placeholder="Email" class="input_itme" name="email" required>
-                    <input type="password" placeholder="Пароль" class="input_itme" name="password" required>
-
-                    <button class="itme_btn itme_btn2">вход</button>
-                </div>
-            </div>
-        </form>
+        <div class="max_box">
+          <img src="{{ asset('assets/images/icone02.png') }}" class="icone__img">
+          <h2 class="box_icone_title">Выгодно</h2>
+          <p class="box_icone_text">
+            комиссия в 3 раза ниже, чем у популярных агрегаторов (8-10% с предзаказа на блюдо)
+          </p>
         </div>
+        <div class="max_box">
+          <img src="{{ asset('assets/images/icone03.png') }}" class="icone__img">
+          <h2 class="box_icone_title">Актуально</h2>
+          <p class="box_icone_text">
+            удовлетворяет растущий спрос на сервисы онлайн-бронирования. В 2022 году он вырос более чем на 50% по сравнению с прошлым годом
+          </p>
+        </div>
+        <div class="max_box">
+          <img src="{{ asset('assets/images/icone04.png') }}" class="icone__img">
+          <h2 class="box_icone_title">Быстро</h2>
+          <p class="box_icone_text">
+            приложение экономит время персонала, повышая производительность труда
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-     </div>
-</div>
+<!-- -------------------------------------------------------------------------------------------------------------- -->
 
 
 
 
-    <script src="{{asset('js/welcome.js')}}"></script>
+<!-- ----------------------------------------------------------------------------------------------------------------- -->
+<section class="footer_max_box">
+  <img src="{{ asset('assets/images/bg0003.jpg') }}" class="images0003">
+  <img src="{{ asset('assets/images/bg0004.jpg') }}" class="images0004">
+
+  <div class="container">
+    <footer class="footer">
+      <div class="footer_box">
+        <a href="/" class="footer_logo">Tap Table</a>
+        <p class="green_text">Политика конфиденциальности</p>
+      </div>
+      <div class="footer_box">
+      <p class="footer_p">Телефон</p>
+      <p class="footer_p"> +374 96-10-10-17</p>
+      </div>
+      <div class="footer_box">
+    <p class="footer_p">Адрес:</p>
+    <p class="footer_p">Yerevan, Mashtoc Ave Sarmen 1 str.</p>
+      </div>
+    </footer>
+  </div>
+</section>
+
+
+
+
+<script src="{{asset('js/welcome.js')}}"></script>
+
+
 </body>
 </html>
+
+
+
+
+
+
