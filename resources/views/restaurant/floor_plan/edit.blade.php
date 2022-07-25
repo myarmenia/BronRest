@@ -232,7 +232,7 @@
                                         {{-- ----------------------tables images-------------------------------- --}}
                                         <div id="gallery"
                                              class=" my-5 d-flex flex-wrap gallery ui-helper-reset ui-helper-clearfix">
-                                            <div class="ui-widget-content ui-corner-tr mr-4 ">
+                                            {{-- <div class="ui-widget-content ui-corner-tr mr-4 ">
                                                 <img
                                                     src={{ route('getFile',['path' => 'public/restaurant/images-tables/3.png'])}} class="img-table"
                                                     data-name='3.png'>
@@ -251,7 +251,12 @@
                                                 <img
                                                     src={{ route('getFile',['path' => 'public/restaurant/images-tables/8.png'])}} class="img-table"
                                                     data-name='8.png'>
-                                            </div>
+                                            </div> --}}
+                                            @for ($u = 0;$u<11;$u++)
+                                                <div class="ui-widget-content ui-corner-tr mr-4">
+                                                    <img src={{ route('getFile',['path' => "public/restaurant/images-tables/$u.png"])}} class="img-table" data-name="{{ $u }}.png">
+                                                </div>
+                                                @endfor
                                         </div>
                                         {{-- -----------Hall name---------------- --}}
                                         <div class="form-group mr-3 bmd-form-group mt-5">

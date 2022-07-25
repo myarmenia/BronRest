@@ -29,7 +29,7 @@ function drag_drop() {
                 // console.log($h)
             $clone_div = ui.draggable.clone()
             $(event.target).html($clone_div)
-            $clone_div.append('<input class="form-control quantity-chair text-center" type="number" name="mm-' + $c + '" placeholder="quantity chair" required="true" aria-required="true" aria-invalid="true">')
+            $clone_div.append('<input class="form-control quantity-chair text-center" type="number" name="mm-' + $c + '" placeholder="количество стул" required="true" aria-required="true" aria-invalid="true">')
             $clone_div.prepend('<div class="text-right x" >x</div>')
             if ($('.width').val() > 4 || $('.height').val() > 4) {
                 $('#table>tr>td>div>img').css('width', '60%')
