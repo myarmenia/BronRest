@@ -77,15 +77,10 @@
                                                 <div class="ui-widget-content ui-corner-tr mr-4 ui-draggable ui-draggable-handle @if($item['y'] == $data['y'] && $item['x'] == $data['x']) ordered @endif">
                                                     {{-- <div class="w-100 text-right x px-3">x</div> --}}
                                                     <img src="{{route('getFile',['path' => 'public/restaurant/images-tables/' . $item['img']])}}" class="img-table" data-name="{{$item['img']}}" style="width: 60%;">
-<<<<<<< HEAD
                                                     <input class="form-control quantity-chair text-center" type="number" name="mm-2" placeholder="количество стул" required="true" aria-required="true" aria-invalid="true"
                                                     value="{{$item['quantity_chair']}}" disabled>
                                                     <input class="form-control table-number text-center" type="number" name="tn-2" placeholder="номер стола" required="true" aria-required="true" aria-invalid="true"
                                                     value="{{$item['table_number'] ?? null}}" disabled>
-=======
-                                                    <input class="form-control quantity-chair text-center" type="number" name="mm-2" placeholder="quantity chair" required="true" aria-required="true" aria-invalid="true"
-                                                           value="{{$item['quantity_chair']}}" disabled>
->>>>>>> dev
                                                 </div>
                                                 @endif
                                         @endforeach
