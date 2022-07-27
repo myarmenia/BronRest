@@ -13,6 +13,8 @@ use App\Http\Controllers\Restaurant\MenuController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\UserOrderHistoryController;
+use App\Http\Controllers\Restaurant\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,11 +83,26 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::put('/update/{id}',[MenuController::class,'update'])->name('restMenuUpdate')->where('id', '[0-9]+');
             });
 
+            Route::resource('history', HistoryController::class);
+
         });
         Route::group(['prefix' => 'user-orders'], function(){
             Route::get('/',[UserOrderController::class,'index'])->name('userOrders');
             Route::get('/show/{id}',[UserOrderController::class,'show'])->name('userShow');
             Route::post('/store/{id}',[UserOrderController::class,'store'])->name('userOrderStore');
+            Route::group(['prefix' => 'history'], function(){
+                Route::get('/',[UserOrderHistoryController::class,'restaurants'])->name('userRestaurantOrderHistory');
+                Route::get('/tables',[UserOrderHistoryController::class,'tables'])->name('userOrderHistory');
+                Route::group(['prefix' => 'order'], function(){
+                Route::get('single/{order}',[UserOrderHistoryController::class,'single'])->name('userOrderHistorySingle');
+                Route::post('single/{order}',[UserOrderHistoryController::class,'singleStore'])->name('userOrderHistorySingleStore');
+                Route::get('menu/{order}',[UserOrderHistoryController::class,'orderMenu'])->name('userOrderMenu');
+                Route::delete('menu/destoy/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuDestroy'])->name('userOrderMenuDestroy');
+                Route::post('menu/{order}',[UserOrderHistoryController::class,'orderMenuStore'])->name('orderMenuStore');
+                Route::get('menu/edit/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuEdit'])->name('userOrderMenuEdit');
+                Route::patch('menu/update/{order}/{order_menu}',[UserOrderHistoryController::class,'orderMenuUpdate'])->name('userOrderMenuUpdate');
+            });
+            });
         });
     });
 });
@@ -99,3 +116,4 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     $request->fulfill();
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+

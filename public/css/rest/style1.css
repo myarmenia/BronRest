@@ -45,6 +45,9 @@ textarea.k_form_control{
 
 .k_custom_file_label:after{
     border: 1px solid;
+    display: Flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .k_btn_lime{
@@ -78,4 +81,30 @@ textarea.k_form_control{
     height: 650px;
 }
 
+
+@media (min-width: 325px) and (max-width: 550px){
+    .k_input_group, .k_custom_file_label{
+        border-radius: 10px;
+    }
+
+    .k_input-group-text{
+        padding: 0 5px;
+        border: none;
+    }
+}
+
+
+/* .input-group>.custom-file{
+    width: 60%;
+} */
+
+/* custom-file-label  es class@ hanl mediayi mej */
+
+/* .k_custom_file_label {
+    height: calc(2.25rem + -21px);
+    border: none;
+    width: 258px;
+    font-size: 13px;
+    font-weight: 700;
+} */
 

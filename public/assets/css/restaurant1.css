@@ -20,7 +20,7 @@
 }
 
 .content_box {
-    width: 45%;
+    width:100%;
 }
 .amount {
     display: flex;
@@ -54,7 +54,9 @@
     background-color: #2B3135;
     outline: none;
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+    color: #fff;
+
 }
 
 .content_box input:focus {
@@ -106,7 +108,7 @@
 .time_text {
     font-size: 20px;
     color: #5F6368;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .time {
@@ -239,4 +241,42 @@ input[type=text] {
 
 .profile_text:hover {
     color: #648E00;
+}
+
+
+.custom-file-label{
+    background-color: #2B3135;
+    border: none;
+}
+
+.custom-file-label:after{
+    background-color: #2B3135;
+}
+
+.center_button{
+justify-content: center;
+}
+
+.img_row{
+    margin: 10px 0;
+}
+
+@media (min-width: 320px) and (max-width: 425px){
+    .content_box{
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .time_text{
+        font-size: 15px;
+    }
+
+    .btn1{
+        width: 35vw;
+    }
+
+    .img_row{
+        margin: 10px 0;
+    }
+
 }

@@ -1,0 +1,508 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #17181B;
+}
+
+.big-box {
+    margin: 50px 0 89px;
+}
+
+.container {
+    max-width: 1248px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.intelligence {
+    display: flex;
+}
+
+.intelligence_box {
+    width: 644.14px;
+    height: 459.56px;
+    background: #202124;
+    border-radius: 10px;
+    padding: 10px 20px 0;
+    margin: 0 20px;
+    overflow: auto;
+}
+
+.intelligence_box::-webkit-scrollbar {
+    width: 10px;
+    height: 55px;
+}
+
+.intelligence_box::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px #3C4043;
+}
+
+.intelligence_box::-webkit-scrollbar-thumb {
+    background-color: #3C4043;
+}
+
+.intelligence_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #5F6368;
+    padding-bottom: 15px;
+    margin-bottom: 16px;
+}
+
+.intelligence_header h1 {
+    font-size: 20px;
+    color: #fff;
+}
+
+.intelligence_header a {
+    font-size: 12px;
+    color: #5F6368;
+    text-decoration: none;
+}
+
+
+/* ======================= */
+
+.booking_date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.booking_hed {
+    font-size: 20px;
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    background: #282A2D;
+    border-radius: 30px;
+    padding: 8px 6px 8px 20px;
+}
+
+.booking_date span {
+    font-size: 16px;
+    color: #fff;
+    margin-right: 20px;
+}
+
+input[type=date] {
+    width: 146px;
+    height: 32px;
+    background-color: #282A2D;
+    background-size: 19.69px;
+    background-repeat: no-repeat;
+    background-position: 90%;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    color: #5F6368;
+    z-index: 1;
+}
+
+.date img {
+    margin-right: 18px;
+}
+
+
+/* ================== */
+
+.booking_hours h1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+input[type=time] {
+    /* background-color: #3C4043; */
+    background: #3C4043;
+    border-radius: 5px;
+    border: none;
+    width: 97.05px;
+    height: 25.86px;
+    color: #fff;
+    padding-left: 5px;
+    margin-bottom: 12px;
+}
+
+input[type=time]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+.table-number {
+    height: 20px;
+}
+
+.table-number::placeholder {
+    font-size: 10px;
+}
+
+
+/* ============================ */
+
+.free_tables h1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.booked {
+    width: 100%;
+    height: 68.15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 16px;
+    background-color: #282A2D;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.booked_user {
+    display: flex;
+    align-items: center;
+}
+
+.booked_numbr {
+    padding-right: 8px;
+    border-right: 1px solid #5F6368;
+}
+
+.booked_phone a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.booked_img {
+    cursor: pointer;
+}
+
+
+/* -------------------------------------- */
+
+.input_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input_items {
+    width: 265px;
+}
+
+.not_paid {
+    width: 100%;
+    height: 94px;
+    background-color: #282A2D;
+    border-radius: 10px;
+    padding: 16px 19px;
+}
+
+.not_paid p {
+    font-size: 16px;
+    color: #5F6368;
+    margin-bottom: 24px;
+}
+
+.input_items .select,
+.slid_item .select {
+    width: 100%;
+    height: 46px;
+    background-color: #282A2D;
+    border: none;
+    outline: 0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 30px;
+    padding: 0px 25px;
+    margin-bottom: 25px;
+}
+
+.input_items_02 {
+    margin-right: 70px;
+}
+
+.date_02 {
+    margin-bottom: 25px;
+}
+
+.select .select_02 {
+    margin: 0;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.time img {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* --------------------- */
+
+.box_user_number {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user_number {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box_user_btn_item {
+    margin-bottom: 16px;
+}
+
+.box_user_btn {
+    width: 223px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    background: linear-gradient(90deg, #648E00 0%, #005100 100%);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.minus,
+.plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #5F6368;
+    background-color: #282A2D;
+    height: 46px;
+    width: 50px;
+}
+
+.minus {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.plus {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.number {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #5F6368;
+}
+
+.user_number_img {
+    margin-left: 20px;
+}
+
+
+/* ---------------------------- */
+
+.save {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save_menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.save_menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    margin: 24px 0 11px 0;
+}
+
+.save_menu button {
+    cursor: pointer;
+    width: 141.87px;
+    height: 46px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #648E00;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+.save_cancel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.save_btn {
+    width: 223px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    margin-bottom: 17px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.save_btn_02 {
+    border: 1px solid #F28500;
+    color: #F28500;
+}
+
+.save_btn_03 {
+    border: 1px solid #FFFFFF;
+}
+
+
+/* ----------------------------------------- */
+
+
+/* .slid {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+} */
+
+.slid_box {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    position: relative;
+}
+
+.slid_min_box {
+    width: 644px;
+    height: 610px;
+    background-color: #202124;
+    border-radius: 10px;
+    padding: 43px 24px 67px;
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.slid_item {
+    width: 284px;
+}
+
+.slid_item_02 {
+    margin-top: 24px;
+}
+
+.user_number_text {
+    font-size: 14px;
+    color: #fff;
+    margin-right: 8px;
+}
+
+.slid_price {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.slid_textarea {
+    width: 100%;
+    height: 113px;
+    background: #282A2D;
+    border: none;
+    border-radius: 10px;
+    color: #5F6368;
+    font-size: 16px;
+    padding: 11px 13px;
+    margin-bottom: 32px;
+    outline: none;
+}
+
+.slid_item_box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 33px;
+}
+
+.slid_item_img img {
+    margin-right: 16px;
+}
+
+.slid_item_img img:last-child {
+    margin: 0;
+}
+
+.pay {
+    padding-top: 115px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2E3134;
+}
+
+.pay p {
+    font-size: 14px;
+    color: #5F6368;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.payment {
+    font-size: 20px;
+    color: #fff;
+    margin-top: 13px;
+    text-align: right;
+}
+
+.slid_btn {
+    margin-top: 57px;
+}
+
+.btn_002 {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.btn_001 {
+    background: linear-gradient(90deg, #648E00 0%, #005100 100%);
+    border: none;
+}

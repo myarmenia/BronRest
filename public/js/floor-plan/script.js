@@ -114,13 +114,14 @@ $('.send').on('click', function(event) {
                         $x = $(this).attr('data-x')
                         $y = $(this).attr('data-y')
                         $img = $(this).find('img').attr('data-name')
-                        $quantity_chair = $(this).find('input').val()
-
+                        $quantity_chair = $(this).find('input.quantity-chair').val()
+                        $table_num = $(this).find('input.table-number').val();
                         $obj = {
                             'x': $x,
                             'y': $y,
                             'img': $img,
-                            'quantity_chair': $quantity_chair
+                            'quantity_chair': $quantity_chair,
+                            'table_number': $table_num
                         }
                         $arr_tbl.push($obj)
                     } else {

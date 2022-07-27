@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Tap Table',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -48,8 +48,8 @@ return [
     |
     */
 
-    'logo' => '<b>Bronerest</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Tap Table</b>',
+    'logo_img' => '/assets/images/main_logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -124,15 +124,15 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'bg-dark',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
-    'classes_content_header' => '',
-    'classes_content' => '',
+    'classes_content_wrapper' => 'bg-dark',
+    'classes_content_header' => 'bg-dark',
+    'classes_content' => 'bg-dark',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -240,65 +240,65 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
+        // [
+        //     'text' => 'blog',
+        //     'url' => 'admin/blog',
+        //     'can' => 'manage-blog',
+        // ],
 
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'route' => 'profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'route' => 'change_password',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'route' => 'profile',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'route' => 'change_password',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text' => 'multilevel',
+        //     'icon' => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'level_one',
+        //             'url' => '#',
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url' => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'level_two',
+        //                     'url' => '#',
+        //                 ],
+        //                 [
+        //                     'text' => 'level_two',
+        //                     'url' => '#',
+        //                     'submenu' => [
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url' => '#',
+        //                         ],
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url' => '#',
+        //                         ],
+        //                     ],
+        //                 ],
+        //             ],
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url' => '#',
+        //         ],
+        //     ],
+        // ],
 //        ['header' => 'Users','can'=>'user-show'],
 //        [
 //            'text'       => 'users',
@@ -345,13 +345,6 @@ return [
             'can' => 'user-feedback',
         ],
 
-        ['header' => 'User Orders', 'can' => 'restaurant'],
-        [
-            'text' => 'Orders',
-            'route' => 'userOrders',
-            'can' => 'restaurant'
-        ],
-
         ['header' => 'Roles And Permissions', 'can' => 'role-list'],
         [
             'text' => 'roles',
@@ -375,7 +368,7 @@ return [
         ],
 
         [
-            'text' => 'Главные рестораны',
+            'text' => 'Профиль ресторана',
             'route' => 'getRestaurant',
             'can' => 'restaurant'
 
@@ -383,11 +376,23 @@ return [
         ],
 
         [
-            'text' => 'Создать Главный ресторан',
+            'text' => 'Управление',
             'route' => 'createMainRestaurantPage',
             'can' => 'restaurant'
 
 
+        ],
+
+        ['header' => 'User Orders', 'can' => 'restaurant'],
+        [
+            'text' => 'Orders',
+            'route' => 'userOrders',
+            'can' => 'restaurant'
+        ],
+        [
+            'text' => 'История бронирования',
+            'route' => 'userRestaurantOrderHistory',
+            'can' => 'restaurant'
         ],
 
     ],

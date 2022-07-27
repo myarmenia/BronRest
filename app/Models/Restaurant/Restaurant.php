@@ -44,7 +44,7 @@ class Restaurant extends Model
 
     public function floor_planes()
     {
-        return $this->hasOne(FloorPlane::class,'restaurant_id','id');
+        return $this->hasMany(FloorPlane::class,'restaurant_id','id');
 
     }
 

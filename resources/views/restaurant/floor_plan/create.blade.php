@@ -36,7 +36,7 @@
                                                 <div class="input-group">
                                                     {{-- <div class="custom-file"> --}}
                                                         {{-- <input type="file" class="custom-file-input" id="exampleInputFile" name="logo"> --}}
-                                                        <input class="form-control img" id="imageUpload" type="file" name="img" required="true"  >
+                                                        <input class="form-control img" id="imageUpload" type="file" name="img"  >
                                                         <label class="custom-file-label" for="imageUpload">Выберите файл</label>
                                                     {{-- </div> --}}
                                                     {{-- <div class="input-group-append">
@@ -62,10 +62,16 @@
                                             </div>
                                             {{-- ----------------------tables images-------------------------------- --}}
                                             <div id="gallery" class=" my-5 d-flex flex-wrap gallery ui-helper-reset ui-helper-clearfix">
-                                                <div class="ui-widget-content ui-corner-tr mr-4 ">
-                                                    <img src={{ route('getFile',['path' => 'public/restaurant/images-tables/3.png'])}} class="img-table" data-name='3.png'>
-                                                </div>
-                                                <div class="ui-widget-content ui-corner-tr mr-4">
+                                                @for ($u=0;$u<10;$u++)
+                                                    <div class="ui-widget-content ui-corner-tr mr-5">
+                                                        <img src={{ route('getFile',['path' => "public/restaurant/images-tables/$u.png"])}} class="img-table" data-name='{{ $u }}.png'>
+                                                    </div>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                @endfor
+                                                {{-- <div class="ui-widget-content ui-corner-tr mr-4">
                                                     <img src={{ route('getFile',['path' => 'public/restaurant/images-tables/4.png'])}} class="img-table" data-name='4.png'>
                                                 </div>
                                                 <div class="ui-widget-content ui-corner-tr mr-4">
@@ -73,7 +79,7 @@
                                                 </div>
                                                 <div class="ui-widget-content ui-corner-tr mr-4">
                                                     <img src={{ route('getFile',['path' => 'public/restaurant/images-tables/8.png'])}} class="img-table" data-name='8.png'>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             {{-- -----------Hall name---------------- --}}
                                             <div class="form-group mr-3 bmd-form-group mt-5">

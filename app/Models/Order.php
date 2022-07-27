@@ -19,13 +19,21 @@ class Order extends Model
         'floor_plane_id',
         'coming_date',
         'people_nums',
-        'status'
+        'status',
         ];
 
 
     public function menus()
     {
-        return $this->belongsToMany(Menu::class,'user_order_menus','order_id','menu_id','id','id');
+        return $this->belongsToMany(Menu::class,'user_order_menus','order_id','menu_id','id','id')
+        ->withPivot(
+            [
+            'count as count',
+            'user_order_menus.id as menu_order_id',
+            'order_id as order_id',
+            'user_order_menus.menu_id as menu_id',
+            'user_order_menus.comment as comment'
+        ]);
     }
 
     public function floors()
@@ -40,6 +48,6 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->select('email');
+        return $this->belongsTo(User::class)->select('id','email','name','phone_number');
     }
 }
