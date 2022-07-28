@@ -146,6 +146,14 @@ input[type=time]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
+.table-number {
+    height: 20px;
+}
+
+.table-number::placeholder {
+    font-size: 10px;
+}
+
 
 /* ============================ */
 

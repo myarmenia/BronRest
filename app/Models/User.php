@@ -96,4 +96,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(FloorPlane::class, Restaurant::class);
 
     }
+
+    public function restaurantOrders()
+    {
+        return $this->hasManyThrough(Order::class, Restaurant::class);
+
+    }
 }

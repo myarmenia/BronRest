@@ -174,8 +174,10 @@
                                                                 <div class="ui-widget-content ui-corner-tr mr-4 ui-draggable ui-draggable-handle">
                                                                     <div class="w-100 text-right x px-3">x</div>
                                                                     <img src="{{route('getFile',['path' => 'public/restaurant/images-tables/' . $item['img']])}}" class="img-table" data-name="{{$item['img']}}" style="width: 60%;">
-                                                                    <input class="form-control quantity-chair text-center" type="number" name="mm-2" placeholder="quantity chair" required="true" aria-required="true" aria-invalid="true"
+                                                                    <input class="form-control quantity-chair text-center" type="number" name="mm-2" placeholder="количество стул" required="true" aria-required="true" aria-invalid="true"
                                                                            value="{{$item['quantity_chair']}}">
+                                                                           <input class="form-control table-number text-center" type="number" name="tn-2" placeholder="номер стола" required="true" aria-required="true" aria-invalid="true"
+                                                                           value="{{$item['table_number'] ?? null}}">
                                                                 </div>
                                                                 @endif
                                                         @endforeach
@@ -232,31 +234,16 @@
                                         {{-- ----------------------tables images-------------------------------- --}}
                                         <div id="gallery"
                                              class=" my-5 d-flex flex-wrap gallery ui-helper-reset ui-helper-clearfix">
-                                            {{-- <div class="ui-widget-content ui-corner-tr mr-4 ">
-                                                <img
-                                                    src={{ route('getFile',['path' => 'public/restaurant/images-tables/3.png'])}} class="img-table"
-                                                    data-name='3.png'>
-                                            </div>
-                                            <div class="ui-widget-content ui-corner-tr mr-4">
-                                                <img
-                                                    src={{ route('getFile',['path' => 'public/restaurant/images-tables/4.png'])}} class="img-table"
-                                                    data-name='4.png'>
-                                            </div>
-                                            <div class="ui-widget-content ui-corner-tr mr-4">
-                                                <img
-                                                    src={{ route('getFile',['path' => 'public/restaurant/images-tables/6.png'])}} class="img-table"
-                                                    data-name='6.png'>
-                                            </div>
-                                            <div class="ui-widget-content ui-corner-tr mr-4">
-                                                <img
-                                                    src={{ route('getFile',['path' => 'public/restaurant/images-tables/8.png'])}} class="img-table"
-                                                    data-name='8.png'>
-                                            </div> --}}
-                                            @for ($u = 0;$u<11;$u++)
-                                                <div class="ui-widget-content ui-corner-tr mr-4">
-                                                    <img src={{ route('getFile',['path' => "public/restaurant/images-tables/$u.png"])}} class="img-table" data-name="{{ $u }}.png">
+                                             @for ($u=0;$u<10;$u++)
+                                                <div class="ui-widget-content ui-corner-tr mr-5">
+                                                    <img src={{ route('getFile',['path' => "public/restaurant/images-tables/$u.png"])}} class="img-table" data-name='{{ $u }}.png'>
                                                 </div>
-                                                @endfor
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <br>
+
+                                            @endfor
                                         </div>
                                         {{-- -----------Hall name---------------- --}}
                                         <div class="form-group mr-3 bmd-form-group mt-5">

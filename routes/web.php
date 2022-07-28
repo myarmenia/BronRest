@@ -14,6 +14,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserOrderHistoryController;
+use App\Http\Controllers\Restaurant\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,8 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::put('/update/{id}',[MenuController::class,'update'])->name('restMenuUpdate')->where('id', '[0-9]+');
             });
 
+            Route::resource('history', HistoryController::class);
+
         });
         Route::group(['prefix' => 'user-orders'], function(){
             Route::get('/',[UserOrderController::class,'index'])->name('userOrders');
@@ -113,3 +116,4 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     $request->fulfill();
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
