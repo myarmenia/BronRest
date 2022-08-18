@@ -391,6 +391,11 @@ return [
         ],
         [
             'text' => 'История бронирования',
+            'route' => 'history.index',
+            'can' => 'restaurant'
+        ],
+        [
+            'text' => 'Панель управления заказами',
             'route' => 'userRestaurantOrderHistory',
             'can' => 'restaurant'
         ],

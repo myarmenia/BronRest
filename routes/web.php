@@ -14,6 +14,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserOrderHistoryController;
+use App\Http\Controllers\Restaurant\HistoryController;
+use App\Http\Controllers\Restaurant\FloorPlanTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +74,10 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::get('create/{id}',[FloorPlanController::class,'create'])->name('addFloorPlan')->where('id', '[0-9]+');
                 Route::post('store/{id}',[FloorPlanController::class,'store'])->name('createFloorPlanData')->where('id', '[0-9]+');
                 Route::post('update/{id}',[FloorPlanController::class,'update'])->name('updateFloorPlanData')->where('id', '[0-9]+');
+                    Route::group(['prefix' => 'table'], function(){
+                        Route::delete('/destroy/{table}',[FloorPlanTableController::class,'destroy'])->name('floorPlanTableDestroy')->where('table', '[0-9]+');
+                        Route::patch('/busy_free/{table}',[FloorPlanTableController::class,'busy_free'])->name('floorPlanTableBusyFree')->where('table', '[0-9]+');
+                    });
             });
 
             Route::group(['prefix' => 'menu'], function(){
@@ -81,6 +87,8 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::delete('/delete/{id}',[MenuController::class,'delete'])->name('restMenuDelete')->where('id', '[0-9]+');
                 Route::put('/update/{id}',[MenuController::class,'update'])->name('restMenuUpdate')->where('id', '[0-9]+');
             });
+
+            Route::resource('history', HistoryController::class);
 
         });
         Route::group(['prefix' => 'user-orders'], function(){
@@ -113,3 +121,4 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     $request->fulfill();
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+

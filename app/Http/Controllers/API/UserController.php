@@ -150,7 +150,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'nullable|email',
             'name' => 'nullable|string',
-            'age' => 'nullable|integer',
+            'dob' => 'nullable|date',
             'gender' => 'nullable|in:male,female,other',
             'phone_number' => 'nullable|integer',
             'avatar' => 'nullable|image'

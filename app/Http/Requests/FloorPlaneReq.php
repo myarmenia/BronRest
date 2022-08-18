@@ -25,11 +25,12 @@ class FloorPlaneReq extends FormRequest
     {
         return [
             'hall_name' => 'required',
-            'img' => 'nullable|image',
-            'table_x'=> 'required',
-            'table_y'=> 'required',
-            'data_json'=> 'required',
-            'description'=> 'nullable'
+            'table.*' => 'required'
+            // 'img' => 'nullable|image',
+            // 'table_x'=> 'required',
+            // 'table_y'=> 'required',
+            // 'data_json'=> 'required',
+            // 'description'=> 'nullable'
         ];
     }
 }

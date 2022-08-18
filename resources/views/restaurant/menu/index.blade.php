@@ -2,9 +2,9 @@
 
 @section('title', 'Create Restauranat')
 @section('css')
-   
+
     <link href="{{ asset('assets/css/accordion.css') }}" rel="stylesheet">
-   
+
 @endsection
 @section('content')
 
@@ -38,7 +38,7 @@
             </table>
         </div>
     </div> -->
-    
+
     <!-- boostrap company model -->
     <div class="modal fade" id="company-modal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -99,164 +99,48 @@
     </div>
     <!-- end bootstrap model -->
     <div class="container">
-    <div class="accordion">
-    <a class="btn btn1" onClick="add()" href="javascript:void(0)"> Создать </a><br><br>
-   
+        <div class="accordion">
+            <a class="btn btn1" onClick="add()" href="javascript:void(0)"> Создать </a><br><br>
+
+            @foreach ($data as $dat)
             <div class="accordion_item ">
                 <div class="accordion_title ">
                     <div class="accordion_titimg " >
-                        <h1>Основные блюда</h1>
-                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
-                    </div>
-                     <div class="deg"><!-- dont change position div class="deg" -->
-                        <img src="{{ asset('assets/images/Vector-65.png') }}">
-                    </div>
-                </div>
-                @foreach($data as $datas)
-                @if($datas->category_id == 1)
-                <div class="accordion_answer ">
-                    <div class="price ">
-                        <div class="price_box ">
-                            <div class="price_img ">
-                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
-                            </div>
-                            <div class="price_text ">
-                                <div class="price_dish ">
-                                    <p>Название Блюда : {{$datas->name}}</p>
-                                    <p>Цена : {{$datas->price}}</p>
-                                </div>
-                                <p class="price_dish_text ">{{$datas->desc}}</p>
-                            </div>
-                            <div class="price_icon ">
-                                <i class="fa fa-ban "></i>
-                                <!-- <img src="images/Group-1260.png "> -->
-                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
-                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-            </div>
-            <div class="accordion_item ">
-                <div class="accordion_title ">
-                    <div class="accordion_titimg " >
-                        <h1>Десерты</h1>
-                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
-                    </div>
-
-                    <div class="deg">
-                    <img src="{{ asset('assets/images/Vector-65.png') }}">
-
-                    </div>
-                </div>
-                @foreach($data as $datas)
-                @if($datas->category_id == 2)
-                <div class="accordion_answer ">
-                    <div class="price ">
-                        <div class="price_box ">
-                            <div class="price_img ">
-                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
-                            </div>
-                            <div class="price_text ">
-                                <div class="price_dish ">
-                                    <p>Название Блюда : {{$datas->name}}</p>
-                                    <p>Цена : {{$datas->price}}</p>
-                                </div>
-                                <p class="price_dish_text ">{{$datas->desc}}</p>
-                            </div>
-                            <div class="price_icon ">
-                                <i class="fa fa-ban "></i>
-                                <!-- <img src="images/Group-1260.png "> -->
-                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
-                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @endforeach
-            </div>
-            <div class="accordion_item ">
-                <div class="accordion_title ">
-                    <div class="accordion_titimg " >
-                        <h1>Напитки</h1>
-                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
+                        <h1>{{ $dat->name }}</h1>
+                        <a> <img src="{{ asset('assets/images/Group_1134.png') }}"></a>
                     </div>
 
                     <img src="{{ asset('assets/images/Vector-65.png') }}">
                 </div>
-                @foreach($data as $datas)
-                @if($datas->category_id == 3)
+                @foreach($dat->menus as $menu)
                 <div class="accordion_answer ">
                     <div class="price ">
                         <div class="price_box ">
                             <div class="price_img ">
-                            <img src="{{ route('getFile',['path' => $datas->img]) }}" alt="">
+                            <img src="{{ route('getFile',['path' => $menu->img]) }}">
                             </div>
                             <div class="price_text ">
                                 <div class="price_dish ">
-                                    <p>Название Блюда : {{$datas->name}}</p>
-                                    <p>Цена : {{$datas->price}}</p>
+                                    <p>Название Блюда : {{$menu->name}}</p>
+                                    <p>Цена : {{$menu->price}}</p>
                                 </div>
-                                <p class="price_dish_text ">{{$datas->desc}}</p>
+                                <p class="price_dish_text ">{{$menu->desc}}</p>
                             </div>
                             <div class="price_icon ">
                                 <i class="fa fa-ban "></i>
                                 <!-- <img src="images/Group-1260.png "> -->
                                 <img src="{{ asset('assets/images/Group_1134.png') }} ">
-                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
+                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$menu->id}}')">
                             </div>
 
                         </div>
                     </div>
                 </div>
-                @endif
                 @endforeach
             </div>
-            
-            <div class="accordion_item ">
-                <div class="accordion_title ">
-                    <div class="accordion_titimg ">
-                        <h1>Алкогольные напитки</h1>
-                        <a href="# "> <img src="{{ asset('assets/images/Group_1134.png ') }}"></a>
-                    </div>
-
-                    <img src="{{ asset('assets/images/Vector-65.png') }}">
-                </div>
-                @foreach($data as $datas)
-                @if($datas->category_id == 4)
-                <div class="accordion_answer ">
-                    <div class="price ">
-                        <div class="price_box ">
-                            <div class="price_img ">
-                                <img src="{{ asset('assets/images/fod.jpg') }} ">
-                            </div>
-                            <div class="price_text ">
-                                <div class="price_dish ">
-                                    <p>Название Блюда</p>
-                                    <p>1000 руб.</p>
-                                </div>
-                                <p class="price_dish_text ">Ингридиенты: куриное филе, помидоры черри, сыр пармезан, хлеб, помидоры черри, сыр пармезан, хлеб, чеснок...</p>
-                            </div>
-                            <div class="price_icon ">
-                                <i class="fa fa-ban "></i>
-                                <!-- <img src="images/Group-1260.png "> -->
-                                <img src="{{ asset('assets/images/Group_1134.png') }} ">
-                                <img src="{{ asset('assets/images/Group-139.png ') }}" onclick="deleteFunc('{{$datas->id}}')">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
             @endforeach
-        </div>
-        </div>
+         </div>
+    </div>
 @endsection
 
 
@@ -385,7 +269,7 @@
 
     </script>
     <script>
-     
+
         //karine
     </script>
 @endsection

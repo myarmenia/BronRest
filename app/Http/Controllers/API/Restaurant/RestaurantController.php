@@ -33,7 +33,9 @@ class RestaurantController extends Controller
 
     public function single($id)
     {
-       $data = Restaurant::with('mainImage','images','floor_planes','days','kitchen_categories')->find($id);
+       $data = Restaurant::with(['mainImage','images','days','kitchen_categories','floor_planes'=>function($q){
+        return $q->withSum('tables', 'count')->with('tables');
+       }])->find($id);
        return response()->json([
             'data' => $data,
             'status' => 200

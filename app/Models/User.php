@@ -29,7 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone_number',
         'age',
         'gender',
-        'avatar'
+        'avatar',
+        'dob'
     ];
 
     /**
@@ -94,6 +95,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function floor_planes()
     {
         return $this->hasManyThrough(FloorPlane::class, Restaurant::class);
+
+    }
+
+    public function restaurantOrders()
+    {
+        return $this->hasManyThrough(Order::class, Restaurant::class);
 
     }
 }

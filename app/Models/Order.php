@@ -38,7 +38,11 @@ class Order extends Model
 
     public function floors()
     {
-        return $this->belongsToMany(FloorPlane::class,'user_order_floors','order_id','floor_plane_id','id','id');
+        return $this->belongsToMany(FloorPlane::class,'user_order_floors','order_id','floor_plane_id','id','id') ->withPivot(
+            [
+            'floor_plane_id as floor_plane_id',
+            'floor_plane_table_id as floor_plane_table_id',
+        ]);
     }
 
     public function rest()

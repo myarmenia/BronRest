@@ -36,10 +36,11 @@ class FloorPlanController extends Controller
 
         $created = $this->floorPlanServ->store($validated);
 
-        return response()->json([
-            'data'=> $created,
-            'status' => 200
-        ]);
+        return redirect()->route('floorPlan',$validated['restaurant_id'])->with('message','success');
+        // return response()->json([
+        //     'data'=> $created,
+        //     'status' => 200
+        // ]);
     }
 
     public function edit($id)
@@ -49,15 +50,16 @@ class FloorPlanController extends Controller
 
     }
 
-    public function update(Request $request,$id)
+    public function update(FloorPlaneReq $request,$id)
     {
 
-        $data = $this->floorPlanServ->update($id,$request->all());
+        $data = $this->floorPlanServ->update($id,$request->validated());
 
-        return response()->json([
-            'data'=> $data,
-            'status' => 200
-        ]);
+        return redirect()->back()->with('message','success');
+        // return response()->json([
+        //     'data'=> $data,
+        //     'status' => 200
+        // ]);
 
     }
 }

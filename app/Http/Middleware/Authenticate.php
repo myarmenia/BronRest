@@ -20,7 +20,7 @@ class Authenticate extends Middleware
                 echo "Unauth User";
                 die;
             }
-            return route('login');
+            return url("/?login=1");
         }
     }
 }

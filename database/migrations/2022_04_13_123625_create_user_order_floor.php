@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('floor_plane_id');
-            $table->integer('floor_plane_x');
-            $table->integer('floor_plane_y');
+            $table->unsignedBigInteger('floor_plane_table_id');
+            $table->integer('floor_plane_x')->nullable();
+            $table->integer('floor_plane_y')->nullable();
 
             $table->foreign('order_id')
             ->references('id')
