@@ -54,4 +54,9 @@ class Order extends Model
     {
         return $this->belongsTo(User::class)->select('id','email','name','phone_number');
     }
+
+    public function cause()
+    {
+        return $this->belongsTo(OrderCause::class,'status','id');
+    }
 }

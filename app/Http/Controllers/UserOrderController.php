@@ -61,7 +61,7 @@ class UserOrderController extends Controller
 
         $order = Order::with(['rest'=>function($q){
             return $q->with('images');
-        },'menus'])->find($id);
+        },'menus','cause'])->find($id);
 
         $order->status = $request['cause'];
         $order->save();
