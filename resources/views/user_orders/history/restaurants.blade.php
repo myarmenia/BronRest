@@ -7,11 +7,13 @@
 
 
 @section('content')
+
 @if(Session::has('history'))
 <div class="alert alert-danger" role="alert" id="alert-box">
    {{ Session::get('history') }}
   </div>
 @endif
+
 <div class="container">
     @if(count($datas))
         @foreach($datas as $data)

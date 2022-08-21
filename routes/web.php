@@ -17,6 +17,7 @@ use App\Http\Controllers\UserOrderHistoryController;
 use App\Http\Controllers\Restaurant\HistoryController;
 use App\Http\Controllers\Restaurant\FloorPlanTableController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
