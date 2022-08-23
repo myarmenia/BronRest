@@ -16,7 +16,7 @@ use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserOrderHistoryController;
 use App\Http\Controllers\Restaurant\HistoryController;
 use App\Http\Controllers\Restaurant\FloorPlanTableController;
-
+use App\Http\Controllers\PrivacyPolicyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +36,10 @@ Route::get('/', function () {
 // Route::group(['middleware' => 'verified'], function(){
 //     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // });
+
+Route::prefix('privacy-policy')->group(function () {
+    Route::get('/', [PrivacyPolicyController::class,'index'])->name('PrivacyPolicy');
+});
 
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => ['verified']], function () {

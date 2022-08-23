@@ -183,7 +183,7 @@
         <footer class="footer">
           <div class="footer_box">
             <a href="#" class="footer_logo">Tap Table</a>
-            <p class="green_text">Политика конфиденциальности</p>
+            <p class="green_text" onclick="location.href = '/privacy-policy'">Политика конфиденциальности</p>
           </div>
           <div class="footer_box">
           <p class="footer_p">Телефон</p>
