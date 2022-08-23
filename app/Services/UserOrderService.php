@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Restaurant\FloorPlaneTable;
 
 class UserOrderService
 {
@@ -32,7 +33,13 @@ class UserOrderService
             {
                 $created->floors()
                 ->attach($floor['id'],
-                ['floor_plane_x' => $floor['x'], 'floor_plane_y' => $floor['y']]);
+                ['floor_plane_table_id' => $floor['table_id']
+            ]);
+            $tab  = FloorPlaneTable::find($floor['table_id']);
+            $tab->free = 1;
+            $tab->save();
+
+                // ['floor_plane_x' => $floor['x'], 'floor_plane_y' => $floor['y']]);
             }
         }
 

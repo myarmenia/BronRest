@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register',[UserController::class ,'signUp']);
+Route::post('sign_up',[UserController::class ,'signUp']);
 Route::post('get_pass',[UserController::class ,'getPass']);
 
 Route::group(["prefix" => "restaurant"],function(){

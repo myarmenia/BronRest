@@ -19,8 +19,12 @@ class MenuController extends Controller
     }
     public function index($id)
     {
-        $data = $this->menuServ->index();
         $categories = MenuCategory::get();
+        $data = MenuCategory::with('menus')
+        ->whereHas('menus',function($q)use($id){
+            return $q->where('restaurant_id',$id);
+        })
+        ->get();
         if(request()->ajax()) {
 
             $customers = Menu::with('category')->where('restaurant_id',$id)->get();

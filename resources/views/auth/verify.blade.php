@@ -3,7 +3,7 @@
 @section('js')
 <script>
     setTimeout(()=>{
-      location.href = "{{url('/')}} " 
-    },2000)
+      location.href = "{{url('/?message=Пройдите верификацию')}} "
+    },1000)
 </script>
 @endsection

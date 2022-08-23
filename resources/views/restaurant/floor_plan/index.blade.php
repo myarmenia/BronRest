@@ -2,18 +2,18 @@
 
 @section('title', 'Create Floor Plane')
 @section('css')
-   
+
     <link href="{{ asset('assets/css/edit/edit.css') }}" rel="stylesheet">
-   
+
 @endsection
 @section('content')
 <div class="container">
-       
+
             <br>
             <div class="button">
-                <a 
-                    type="button" 
-                    class="btn" 
+                <a
+                    type="button"
+                    class="btn"
                     href="{{route('addFloorPlan',request()->route('id') ?? null)}}">
                     <button class="btn1" >Создать зал</button>
                 </a>
@@ -26,10 +26,13 @@
                             <h5 class="time_text">
                                 {{$dat['hall_name'] ?? null}}
                             </h5>
+                            <h5 class="time_text">
+                                {{$dat->tables_sum_count ?? null}} стульев
+                            </h5>
                             <p class="time_text">
                                 {{$dat['description'] ?? null}}
                             </p>
-                            <a 
+                            <a
                                 href="{{route('editFloorPlan',$dat['id'])}}">
                                 <button class="btn1" >Редактировать</button>
                             </a>
@@ -37,7 +40,7 @@
                     </div>
                 @endforeach
             @endif
-   
+
     <br>
 </div>
 @endsection

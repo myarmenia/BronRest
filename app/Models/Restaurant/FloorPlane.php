@@ -4,6 +4,7 @@ namespace App\Models\Restaurant;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class FloorPlane extends Model
 {
@@ -20,4 +21,10 @@ class FloorPlane extends Model
         'data_json',
         'description'
         ];
+
+    public function tables()
+    {
+        return $this->hasMany(FloorPlaneTable::class,'floor_plane_id','id');
+    }
+
 }
