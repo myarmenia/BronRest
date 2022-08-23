@@ -23,7 +23,9 @@ class OrderController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Auth::user()->orders,
+            'data' => Auth::user()->orders()->with(['rest'=>function($q){
+                return $q->with('images');
+            },'menus'])->get(),
             'message' => 'success'
         ], 200);
     }
@@ -66,8 +68,9 @@ class OrderController extends Controller
         [
             'restaurant_id' => 'required|integer',
             'floors.*.id' => 'required|integer',
-            'floors.*.x' => 'required|integer',
-            'floors.*.y' => 'required|integer',
+            'floors.*.table_id' => 'required|integer',
+            // 'floors.*.x' => 'required|integer',
+            // 'floors.*.y' => 'required|integer',
             'coming_date' => 'date',
             'people_nums' => 'nullable|integer',
             'menus.*' => 'nullable'

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->string('hall_name');
             $table->string('img')->nullable();
-            $table->integer('table_x');
-            $table->integer('table_y');
-            $table->jsonb('data_json');
+            $table->integer('table_x')->nullable();
+            $table->integer('table_y')->nullable();
+            $table->jsonb('data_json')->nullable();
             $table->mediumText('description')->nullable();
             $table->timestamps();
 

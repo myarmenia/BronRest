@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Notifications\OrderCauseNot;
 use App\Services\UserOrderService;
 use App\Services\MessageService;
+use App\Events\NotificationEvent;
 
 
 class UserOrderController extends Controller
@@ -58,12 +59,16 @@ class UserOrderController extends Controller
     {
         $validated = $request->validated();
 
-        $order = Order::find($id);
+        $order = Order::with(['rest'=>function($q){
+            return $q->with('images');
+        },'menus','cause'])->find($id);
+
         $order->status = $request['cause'];
         $order->save();
 
         $user = User::find($order['user_id']);
         $user->notify(new OrderCauseNot($request['cause']));
+        event(new NotificationEvent($order));
 
         if($user['phone_number']){
             $message = new MessageService();

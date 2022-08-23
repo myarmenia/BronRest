@@ -15,7 +15,8 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserOrderHistoryController;
 use App\Http\Controllers\Restaurant\HistoryController;
-
+use App\Http\Controllers\Restaurant\FloorPlanTableController;
+use App\Http\Controllers\PrivacyPolicyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,10 @@ Route::get('/', function () {
 // Route::group(['middleware' => 'verified'], function(){
 //     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // });
+
+Route::prefix('privacy-policy')->group(function () {
+    Route::get('/', [PrivacyPolicyController::class,'index'])->name('PrivacyPolicy');
+});
 
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => ['verified']], function () {
@@ -73,6 +78,10 @@ Route::group(['middleware' => ['auth']], function() {
                 Route::get('create/{id}',[FloorPlanController::class,'create'])->name('addFloorPlan')->where('id', '[0-9]+');
                 Route::post('store/{id}',[FloorPlanController::class,'store'])->name('createFloorPlanData')->where('id', '[0-9]+');
                 Route::post('update/{id}',[FloorPlanController::class,'update'])->name('updateFloorPlanData')->where('id', '[0-9]+');
+                    Route::group(['prefix' => 'table'], function(){
+                        Route::delete('/destroy/{table}',[FloorPlanTableController::class,'destroy'])->name('floorPlanTableDestroy')->where('table', '[0-9]+');
+                        Route::patch('/busy_free/{table}',[FloorPlanTableController::class,'busy_free'])->name('floorPlanTableBusyFree')->where('table', '[0-9]+');
+                    });
             });
 
             Route::group(['prefix' => 'menu'], function(){

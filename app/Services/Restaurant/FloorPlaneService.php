@@ -15,42 +15,50 @@ class FloorPlaneService
 
     public function store($data)
     {
-        $created = FloorPlane::create($data,['except' => ['img'] ]);
 
-        if(isset($data['img'])){
-            $img = $this->fileServ->createImage($created['id'],$data['img']);
-            $created['img'] = $img;
-            $created->save();
+        $floorPlane = FloorPlane::create($data);
+
+        if(count($data['table']))
+        {
+            foreach($data['table'] as $table)
+            {
+                $floorPlane->tables()->create($table);
+            }
         }
 
-        return $created;
+        // if(isset($data['img'])){
+        //     $img = $this->fileServ->createImage($created['id'],$data['img']);
+        //     $created['img'] = $img;
+        //     $created->save();
+        // }
+
+        return $floorPlane;
 
     }
 
     public function getByRestaurantId(Int $id){
-        $data = FloorPlane::where('restaurant_id',$id)->get();
-
+        $data = FloorPlane::withSum('tables', 'count')->with('tables')->where('restaurant_id',$id)->get();
         return $data;
     }
 
     public function find(int $id)
     {
-        $data = FloorPlane::find($id);
+        $data = FloorPlane::with('tables')->find($id);
 
         return $data;
     }
 
     public function update(Int $id,$data){
         $find = $this->find($id);
-        $updated = $find->update($data,['except' => ['img'] ]);
+        $updated = $find->update($data);
 
-        if(isset($data['img'])){
-            if($find['img']){
-                $this->fileServ->delete($find['img']);
+
+        if(count($data['table']))
+        {
+            foreach($data['table'] as $table)
+            {
+                $find->tables()->updateOrCreate(['id'=>$table['id']],$table);;
             }
-            $img = $this->fileServ->createImage($find['id'],$data['img']);
-            $find['img'] = $img;
-            $find->save();
         }
         return $updated;
     }

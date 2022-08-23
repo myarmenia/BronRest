@@ -13,15 +13,13 @@ class UserOrderHistoryController extends Controller
     public function tables(Request $request)
     {
             $validated = $request->validate([
-                'hall' => 'required|integer',
-                'x' => 'required|integer',
-                'y' => 'required|integer',
+                // 'hall' => 'required|integer',
+                // 'x' => 'required|integer',
+                // 'y' => 'required|integer',
+                'table_id' => 'required|integer'
             ]);
             $data = Order::with('floors','user')->whereHas('floors', function($q) use ($validated){
-                return $q->where('floor_plane_x',$validated['x'])
-                ->where('floor_plane_y',$validated['y'])
-                ->where('floor_plane_id',$validated['hall'])
-                ;
+                return $q->where('floor_plane_table_id',$validated['table_id']);
             });
 
             if(isset($request['date']))
@@ -35,13 +33,20 @@ class UserOrderHistoryController extends Controller
 
             $data = $data->get();
 
+            if(!count($data))
+            {
+                return redirect()->back()->with('history',"$request->table_id столика нету истории");
+            }
+
             return view('user_orders.history.index',compact('data'));
 
     }
 
     public function restaurants()
     {
-        $datas = Auth::user()->restaurants()->with('floor_planes')->whereNotNull('parent_id')->get();
+        $datas = Auth::user()->restaurants()->with(['floor_planes'=>function($q){
+            return $q->with('tables');
+        }])->whereNotNull('parent_id')->get();
 
         return view('user_orders.history.restaurants',compact('datas'));
     }

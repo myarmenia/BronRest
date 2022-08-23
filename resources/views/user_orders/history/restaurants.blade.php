@@ -7,6 +7,13 @@
 
 
 @section('content')
+
+@if(Session::has('history'))
+<div class="alert alert-danger" role="alert" id="alert-box">
+   {{ Session::get('history') }}
+  </div>
+@endif
+
 <div class="container">
     @if(count($datas))
         @foreach($datas as $data)
@@ -23,16 +30,15 @@
                     <span class="title_table">{{ $floor['hall_name'] }}</span>
                 </div>
 
-                @if(count(json_decode($floor['data_json'],1)))
+                @if(count($floor->tables))
                 <div class="table">
                     {{-- <h1 class="tab">test</h1> --}}
                     <div class="table_tab">
-                        @foreach(json_decode($floor['data_json'],1) as $table)
-                        @continue(!count($table))
-                            <a href="{{ route('userOrderHistory',['x'=>$table["x"],'y'=>$table["y"],'hall'=>$floor['id']]) }}">
+                        @foreach($floor->tables as $table)
+                            <a href="{{ route('userOrderHistory',['table_id'=>$table->id]) }}">
                                 {{-- x - {{ $table["x"] }}
                                 y - {{ $table["y"] }} --}}
-                                {{isset($table["table_number"]) ? $table["table_number"] . ' столик' : null }}
+                                столик {{ $table->number }}
                             </a>
                         @endforeach
                     </div>
@@ -46,6 +52,9 @@
 @endsection
 
 @section('js')
-
+<script>
+setTimeout(() => {
+    document.getElementById('alert-box').remove()
+}, 3000);
+</script>
 @endsection
-
