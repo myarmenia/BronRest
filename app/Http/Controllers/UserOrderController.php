@@ -13,6 +13,7 @@ use App\Notifications\OrderCauseNot;
 use App\Services\UserOrderService;
 use App\Services\MessageService;
 use App\Events\NotificationEvent;
+use App\Events\NotificationWithoutPrEvent;
 
 
 class UserOrderController extends Controller
@@ -68,7 +69,7 @@ class UserOrderController extends Controller
 
         $user = User::find($order['user_id']);
         $user->notify(new OrderCauseNot($request['cause']));
-        event(new NotificationEvent($order));
+        event(new NotificationWithoutPrEvent($order));
 
         if($user['phone_number']){
             $message = new MessageService();
