@@ -60,6 +60,8 @@ class UserOrderController extends Controller
     {
         $validated = $request->validated();
 
+        dd($validated);
+
         $order = Order::with(['rest'=>function($q){
             return $q->with('images');
         },'menus','cause'])->find($id);
@@ -73,7 +75,7 @@ class UserOrderController extends Controller
 
         if($user['phone_number']){
             $message = new MessageService();
-            $message->sendSMS($user->phone_number,$request['cause']);
+            $message->sendSMS($user->phone_number,OrderCause::find($request['cause']));
         }
 
         return redirect()->back();
