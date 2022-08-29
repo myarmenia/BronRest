@@ -73,7 +73,7 @@ class UserOrderController extends Controller
 
         if($user['phone_number']){
             $message = new MessageService();
-            $message->sendSMS($user->phone_number,OrderCause::find($request['cause']));
+            $message->sendSMS($user->phone_number,OrderCause::find($request['cause'])->name);
         }
 
         return redirect()->back();
