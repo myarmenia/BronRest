@@ -60,8 +60,6 @@ class UserOrderController extends Controller
     {
         $validated = $request->validated();
 
-        dd($validated);
-
         $order = Order::with(['rest'=>function($q){
             return $q->with('images');
         },'menus','cause'])->find($id);
